@@ -1,0 +1,17 @@
+.red-text {
+  color: red;
+}
+
+@media (max-width: 375px) {
+  .table-responsive-md {
+    display: block;
+    width: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+  }
+
+  .table-responsive-md>.table-bordered {
+    border: 0;
+  }
+}
