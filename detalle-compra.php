@@ -4,6 +4,11 @@
       include 'conexion.php';
       ?>
       <!-- end navbar -->
+     
+
+
+ 
+      
 
       <!-- Breadcrumb -->
       <nav class="bg-secondary mb-3" aria-label="breadcrumb">
@@ -348,7 +353,7 @@
                   <span class="h5 mb-0">$230.00</span>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary btn-lg w-100">Confirmar pago</button>
+              <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button>
             </div>
           </aside>
 
@@ -360,3 +365,91 @@
 
       <!-- Footer -->
       <?php include 'footer.php'; ?>
+
+      <script>
+
+
+
+
+    
+/*
+  Culqi.options({
+      style: {
+        logo: 'https://culqi.com/LogoCulqi.png',
+        bannerColor: '', // hexadecimal
+        buttonBackground: '', // hexadecimal
+        menuColor: '', // hexadecimal
+        linksColor: '', // hexadecimal
+        buttonText: '', // texto que tomará el botón
+        buttonTextColor: '', // hexadecimal
+        priceColor: '' // hexadecimal
+      }
+  });
+
+  */
+  const btn_pagar = document.getElementById('btn_pagar');
+
+btn_pagar.addEventListener('click', function (e) {
+    // Abre el formulario con la configuración en Culqi.settings y CulqiOptions
+    Culqi.publicKey = 'pk_test_0180d49bf88f53a1';
+    Culqi.settings({
+    title: 'Culqi Store',
+    currency: 'PEN',  // Este parámetro es requerido para realizar pagos yape
+    amount: 1000,  // Este parámetro es requerido para realizar pagos yape
+   // order: 'ord_live_0CjjdWhFpEAZlxlz', // Este parámetro es requerido para realizar pagos con pagoEfectivo, billeteras y Cuotéalo
+   // xculqirsaid: 'Inserta aquí el id de tu llave pública RSA',
+    //rsapublickey: 'Inserta aquí tu llave pública RSA',
+  });
+
+  Culqi.options({
+    lang: "auto",
+    installments: false, // Habilitar o deshabilitar el campo de cuotas
+    paymentMethods: {
+      tarjeta: true,
+      yape: true,
+      bancaMovil: true,
+      agente: true,
+      billetera: true,
+      cuotealo: true,
+    },
+    style: {
+          logo: "https://static.culqi.com/v2/v2/static/img/logo.png",
+    }
+  });
+
+
+    Culqi.open();
+    e.preventDefault();
+})
+
+function culqi() {
+    if (Culqi.token) {  // ¡Objeto Token creado exitosamente!
+      const token = Culqi.token.id;
+      const email = Culqi.token.email;
+      console.log('Se ha creado un Token: ', token);
+      //En esta linea de codigo debemos enviar el "Culqi.token.id"
+      //hacia tu servidor con Ajax
+
+      $.ajax({
+            url: "procesarPago2.php",
+            type: "POST",
+            data: {
+                token: token,
+                email: email
+            }
+        }).done(function(resp){
+            alert(resp);
+        })
+      }
+  };
+
+
+
+
+
+
+
+
+
+
+  </script> 

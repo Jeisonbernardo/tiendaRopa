@@ -150,6 +150,11 @@ while ($row = mysqli_fetch_assoc($result)) {
   <script src="./assets/js/java.js"></script>
   <!-- Viewport-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://checkout.culqi.com/js/v4"></script>
+
+
+
+
 
   <!-- Favicon and Touch Icons-->
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -166,6 +171,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
   <!-- Main Theme Styles + Bootstrap-->
   <link rel="stylesheet" media="screen" href="assets/css/demo/ecommerce/theme.min.css">
+  
 
   <!-- Page loading scripts-->
   <script>
@@ -175,7 +181,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     });
   </script>
 
-  <script src="assets/js/cleave.min.js"></script>
 
   <script>
     // Función para cambiar la moneda 
@@ -776,6 +781,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 // Aquí puedes agregar el contenido que deseas mostrar cuando el usuario no tiene sesión iniciada
               }
               ?>
+              
               <?php
               if (basename($_SERVER['PHP_SELF']) !== 'detalle-compra.php') {
               ?>
@@ -807,6 +813,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                 </span>
               </div>
             </div>
+
+            
             <!-- Menu -->
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
@@ -874,7 +882,7 @@ while ($row = mysqli_fetch_assoc($result)) {
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Información</a>
                 <ul class="dropdown-menu">
-                  <li><a href="contacts.php" class="dropdown-item">Contactanos</a></li>
+                  <li><a href="contacto.php" class="dropdown-item">Contactanos</a></li>
                   <li><a href="order-tracking.php" class="dropdown-item">Seguimiento del pedido</a></li>
                 </ul>
               </li>

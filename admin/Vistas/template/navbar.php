@@ -163,7 +163,7 @@ if (isset($_GET['logout'])) {
                 <a class="dropdown-item" href="./agregar_productos.php">Agregar descuento</a>
                 <a class="dropdown-item" href="./ver_productos.php">Ver descuento</a>
               </div>-->
-
+              <a class="nav-link px-4 <?php echo basename($current_url) === 'contacto.php' ? 'active' : ''; ?>" href="./ver_contacto.php">Contactos</a>
               <a class="nav-link px-4 <?php echo basename($current_url) === 'configuraciones.php' ? 'active' : ''; ?>" href="./configuraciones.php">Configurar tienda</a>
 
             </nav>

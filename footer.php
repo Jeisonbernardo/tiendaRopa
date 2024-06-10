@@ -771,9 +771,14 @@ if (basename($_SERVER['PHP_SELF']) === 'catalogo.php') {
 
 
 <!-- Main theme script-->
+    <script src="assets/js/cleave.min.js"></script>
 <script src="assets/js/theme.min.js"></script>
 <script src="assets/js/simplebar.min.js"></script>
 <script src="assets/js/java.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
 
 </body>
 
