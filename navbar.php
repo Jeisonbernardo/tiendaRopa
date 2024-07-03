@@ -498,9 +498,9 @@ while ($row = mysqli_fetch_assoc($result)) {
   <?php endif; ?>
 
   <div class="whatsapp-icon">
-    <a href="https://api.whatsapp.com/send?phone=51<?php echo $whatsapp; ?>" target="_blank">
+    <a href="tel:+51 <?php echo $numero; ?>" target="_blank">
       <img src="./assets/img/icon_whast_vf.png" alt="WhatsApp Icon">
-      <div class="message">Unete a nuestro grupo!</div>
+      <div class="message">Escríbenos al Whatsapp</div>
     </a>
   </div>
 
@@ -717,15 +717,6 @@ while ($row = mysqli_fetch_assoc($result)) {
               <i class="cxi-bag font-size-base mr-2"></i>
               <span>Mis Pedidos</span>
             </a>
-            <a href="account-wishlist.php" class="dropdown-item d-flex align-items-center">
-              <i class="cxi-heart font-size-base mr-2"></i>
-              <span>Favoritos</span>
-              <span class="badge badge-warning ml-auto">2</span>
-            </a>
-            <a href="account-recently-viewed.php" class="dropdown-item d-flex align-items-center">
-              <i class="cxi-eye font-size-base mr-2"></i>
-              <span>Vistos recientemente</span>
-            </a>
             <a href="account-reviews.php" class="dropdown-item d-flex align-items-center">
               <i class="cxi-star font-size-base mr-2"></i>
               <span>Mis Reseñas</span>
@@ -755,7 +746,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       <div class="navbar navbar-expand-lg navbar-light bg-light navbar-sticky" data-fixed-element>
         <div class="container px-0 px-xl-3">
           <a href="./" class="navbar-brand order-lg-1 mr-0 pr-lg-3 mr-lg-4">
-            <img src="assets/img/nav.png" alt="Nav Logo" width="130">
+            <img src="assets/img/nav.png" alt="Nav Logo" width="80">
           </a>
           <!-- Toolbar -->
           <div class="d-flex align-items-center order-lg-3">
@@ -764,11 +755,12 @@ while ($row = mysqli_fetch_assoc($result)) {
               // Verificar si el usuario tiene la sesión iniciada
               if (isset($_SESSION["user_token"])) {
                 $user_token = $_SESSION["user_token"];
+                // CORAZON EN PANTALLA
               ?>
                 <li class="nav-item d-lg-block d-none mb-0">
-                  <a href="account-wishlist.php" class="nav-tool">
+                  <a href="#" class="nav-tool">
                     <i class="cxi-heart nav-tool-icon"></i>
-                    <span class="nav-tool-label">2</span>
+                    <span class="nav-tool-label"></span>
                   </a>
                 </li>
                 <li class="divider-vertical mb-0 d-lg-block d-none"></li>
@@ -816,9 +808,11 @@ while ($row = mysqli_fetch_assoc($result)) {
               <li class="nav-item">
                 <a href="index.php" class="nav-link">Inicio</a>
               </li>
-              <li class="nav-item">
-                <a href="catalogo.php" class="nav-link" >Tienda</a>
-          
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tienda</a>
+                <ul class="dropdown-menu">
+                  <li><a href="catalogo.php" class="dropdown-item">Catálogo</a></li>
+                </ul>
               </li>
               <li class="nav-item dropdown mega-dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menú</a>
@@ -860,11 +854,11 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <span class="divider-vertical h-100 mx-auto"></span>
                       </div>
                       <div class="col-lg-3 d-none d-lg-block py-2">
-                        <a href="#" class="d-block text-decoration-none pt-1">
-                          <img src="./assets/img/ecommerce/megamenu.jpg" class="d-block rounded mb-3" alt="Promo banner">
-                          <h5 class="font-size-sm mb-3">Back to school. Sale up to 50%</h5>
+                        <a href="catalogo.php" class="d-block text-decoration-none pt-1">
+                          <img src="assets/img/ecommerce/home/hero-slider/cuadroNavbar.jpg" class="d-block rounded mb-3" alt="Promo banner">
+                          <h5 class="font-size-sm mb-3">Moda para el hombre de hoy</h5>
                           <div class="btn btn-outline-primary btn-sm">
-                            See offers
+                            Catálogo
                             <i class="cxi-arrow-right ml-1"></i>
                           </div>
                         </a>
@@ -889,7 +883,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     // Mostrar el botón de administración si el usuario es admin
     if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
-        echo '<a href="admin/index.php" class="nav-link">Ir al panel de administración</a>';
+        echo '<a href="admin/index.php" class="nav-link">Panel Administrativo</a>';
     }
     ?>
           
@@ -957,16 +951,10 @@ while ($row = mysqli_fetch_assoc($result)) {
         <div class="cs-carousel cs-controls-inverse">
           <div class="cs-carousel-inner" data-carousel-options='{"mode": "gallery", "nav": false}'>
             <div class="font-size-xs text-light px-2">
-              <strong class="mr-1">Up to 70% Off.</strong>
-              <a href="#" class="text-light">Shop our latest sale offers</a>
+              <strong class="mr-1">"Estilo y tendencia a solo un clic"</strong>
             </div>
             <div class="font-size-xs text-light px-2">
-              <strong class="mr-1">Money back guarantee.</strong>
-              <a href="#" class="text-light">Learn more</a>
-            </div>
-            <div class="font-size-xs text-light px-2">
-              <strong class="mr-1">Friendly customer support.</strong>
-              <a href="#" class="text-light">Contact 24/7</a>
+              <strong class="mr-1">"Encuentra tu estilo, vive tu moda"</strong>
             </div>
           </div>
         </div>

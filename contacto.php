@@ -38,17 +38,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contacto'])) {
         <div class="modal-content border-0">
 <div class="" id="">
             <div class="modal-header border-0 pb-0 px-md-5 px-4 d-block position-relative">
-              <h3 class="modal-title mt-4 mb-0 text-center">Contactanos</h3>
+              <h3 class="modal-title mt-4 mb-0 text-center">Contáctanos</h3>
         
         
               </button>
             </div>
             <div class="modal-body px-md-5 px-4">
-              <p class="font-size-sm text-muted text-center">Contactanos si desea mas información.</p>
+              <p class="font-size-sm text-muted text-center">¡Contáctanos si tiene alguna consulta!</p>
               <form class="needs-validation" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" novalidate>
                 <div class="form-group">
                   <label for="signup-name">Nombres</label>
-                  <input type="text" class="form-control" id="signup-name" name="name" placeholder="Su nombre" required>
+                  <input type="text" class="form-control" id="signup-name" name="name" placeholder="Tu nombre" required>
                 </div>
                 <div class="form-group">
                   <label for="register-lastname">Apellido</label>
@@ -56,12 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contacto'])) {
                 </div>
                 <div class="form-group">
                   <label for="signup-email">Correo electrónico</label>
-                  <input type="email" class="form-control" id="signup-email" name="email" placeholder="Su dirección de correo electrónico" required>
+                  <input type="email" class="form-control" id="signup-email" name="email" placeholder="Tu dirección de correo electrónico" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="register-lastname">Apellido</label>
-                  <input type="text" class="form-control" id="register-lastname" name="telefono" placeholder="Tu apellido" required>
+                  <label for="register-lastname">Teléfono</label>
+                  <input type="text" class="form-control" id="register-telefono" name="telefono" placeholder="Tu teléfono" required>
                 </div>
                 
                 <div class="form-group">
