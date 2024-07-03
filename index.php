@@ -189,11 +189,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="row mt-lg-n5">
       <div class="col-lg-7 col-md-8 col-sm-10 offset-lg-1 offset-xl-0">
         <div class="position-relative">
-          <div id="pager" class="cs-pager cs-pager-inverse mb-xl-5 pb-5 pb-md-6">
-            <button type="button" data-nav="0" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);">01</button>
-            <button type="button" data-nav="1" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);">02</button>
-            <button type="button" data-nav="2" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);">03</button>
-            <button type="button" data-nav="3" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);">04</button>
+          <div id="pager">
+            <button type="button" data-nav="0" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);"></button>
+            <button type="button" data-nav="1" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);"></button>
+            <button type="button" data-nav="2" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);"></button>
+            <button type="button" data-nav="3" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);"></button>
           </div>
         </div>
       </div>
@@ -308,75 +308,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     <p>No hay productos disponibles.</p>
   <?php endif; ?>
   </div>
-
-</section>
-
-<!-- Promo banners -->
-<section class="container-fluid px-xl-grid-gutter">
-  <div class="row mx-n2">
-
-    <!-- Banner -->
-    <div class="col-lg-5 px-2 mb-3">
-      <div class="d-flex flex-column h-100 bg-size-cover bg-position-center-y rounded py-5 px-md-5 px-4" style="background-image: url(./assets/img/ecommerce/home/banners/01.jpg);">
-        <div class="mt-md-3 mb-md-6 pb-6 px-md-2">
-          <h3 class="mb-2 pb-1 fs-sm text-uppercase">Summer Collections</h3>
-          <h2 class="pb-3">Sale Up to 70%</h2>
-          <a href="catalogo.php#Nuevos" class="btn btn-outline-primary">Explorar nuevos productos</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Banner -->
-    <div class="col-lg-7 px-2 mb-3">
-      <div class="d-flex flex-column h-100 bg-size-cover bg-position-center-y rounded py-5 px-md-5 px-4" style="background-image: url(./assets/img/ecommerce/home/banners/02.jpg);">
-        <div class="mt-md-3 mb-md-5 pb-5 px-md-2" style="max-width: 22rem;">
-          <h3 class="mb-2 pb-1 fs-sm text-uppercase">Deal of the Week</h3>
-          <h2 class="pb-3">Stay Warm With Our New Sweaters</h2>
-          <a href="#" class="btn btn-outline-primary">Shop now</a>
-        </div>
-        <div class="mb-md-3 px-md-2">
-          <h3 class="mb-2 pb-1 fs-sm text-uppercase">Limited time offer</h3>
-          <div class="countdown h3 mb-0" data-countdown="01/30/2024 07:00:00 PM">
-            <div class="countdown-days mb-0">
-              <span class="countdown-value">0</span>
-              <span class="countdown-label mt-1 fs-sm text-body">Days</span>
-            </div>
-            <div class="countdown-hours mb-0">
-              <span class="countdown-value">0</span>
-              <span class="countdown-label mt-1 fs-sm text-body">Hours</span>
-            </div>
-            <div class="countdown-minutes mb-0">
-              <span class="countdown-value">0</span>
-              <span class="countdown-label mt-1 fs-sm text-body">Mins</span>
-            </div>
-            <div class="countdown-seconds mb-0">
-              <span class="countdown-value">0</span>
-              <span class="countdown-label mt-1 fs-sm text-body">Secs</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mx-n2">
-
-    <!-- Banner -->
-    <div class="col-lg-12 px-2 mb-3">
-      <?php
-      // Generar la ruta completa de la imagen
-      $rutaImagen = './admin/' . $firstCategory['categoria_imagen'];
-      ?>
-      <div class="d-flex flex-column h-100 bg-size-cover bg-position-center-y rounded py-5 px-md-5 px-4" style="background-image: url(<?php echo $rutaImagen; ?>);">
-        <div class="mt-md-3 mb-md-6 pb-6 px-md-2" style="max-width: 22rem;">
-          <h3 class="mb-2 pb-1 fs-sm text-uppercase" style="color:red; text-shadow: 2px 0px 3px rgba(0, 0, 0, 12);">Nueva colección</h3>
-          <h2 class="pb-3" style="color:white; text-shadow: 4px 0px 3px rgba(0, 0, 0, 0.85);"><?php echo $firstCategory['categoria_nombre']; ?><br><?php echo ucfirst($currentMonth) . ' ' . $currentYear; ?></h2>
-          <a href="catalogo.php#<?php echo $firstCategory['categoria_nombre']; ?>" class="btn btn-outline-primary">Ver Catálogo</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 
 <!-- categorias -->
@@ -599,201 +530,6 @@ while ($row = mysqli_fetch_assoc($result)) {
   </div>
 </section>
 
-
-<!-- Sale products (carousel) -->
-<section class="container my-2 my-md-3 py-5 py-lg-6">
-  <div class="d-flex align-items-center justify-content-between pb-sm-1 mb-5">
-    <h2 class="h1 mb-0">Sale up to 70%</h2>
-    <div class="tns-custom-controls cs-controls-inverse" id="custom-controls-sale" tabindex="0">
-      <button type="button" data-controls="prev" tabindex="-1">
-        <i class="cxi-arrow-left"></i>
-      </button>
-      <button type="button" data-controls="next" tabindex="-1">
-        <i class="cxi-arrow-right"></i>
-      </button>
-    </div>
-  </div>
-  <div class="cs-carousel pb-2">
-    <div class="cs-carousel-inner" data-carousel-options='{
-      "nav": false,
-      "controlsContainer": "#custom-controls-sale",
-      "responsive": {
-        "0": {
-          "items": 1,
-          "gutter": 20
-        },
-        "480": {
-          "items": 2,
-          "gutter": 24
-        },
-        "700": {
-          "items": 3,
-          "gutter": 24
-        },
-        "1100": {
-          "items": 4,
-          "gutter": 30
-        }
-      }
-    }'>
-
-      <!-- Item -->
-      <div>
-        <div class="card card-product mx-auto">
-          <div class="card-product-img">
-            <a href="shop-single.php" class="card-img-top">
-              <img src="assets/img/ecommerce/shop/11.jpg" alt="Product image" draggable="false">
-            </a>
-            <div class="card-product-widgets-top">
-              <span class="badge product-badge badge-danger">-50%</span>
-              <div class="star-rating ml-auto">
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-              </div>
-            </div>
-            <div class="card-product-widgets-bottom">
-              <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-            </div>
-          </div>
-          <div class="card-body pb-2">
-            <h3 class="card-product-title text-truncate mb-2">
-              <a href="shop-single.php" class="nav-link">Leather crossbody bag with chain lace</a>
-            </h3>
-            <div class="d-flex align-items-center">
-              <span class="h5 d-inline-block text-danger mb-0">$89.50</span>
-              <del class="d-inline-block ml-2 pl-1 text-muted">$179.00</del>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item -->
-      <div>
-        <div class="card card-product mx-auto">
-          <div class="card-product-img">
-            <a href="shop-single.php" class="card-img-top">
-              <img src="assets/img/ecommerce/shop/10.jpg" alt="Product image">
-            </a>
-            <div class="card-product-widgets-top">
-              <span class="badge product-badge badge-danger">-33%</span>
-            </div>
-            <div class="card-product-widgets-bottom">
-              <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-            </div>
-          </div>
-          <div class="card-body pb-2">
-            <h3 class="card-product-title text-truncate mb-2">
-              <a href="shop-single.php" class="nav-link">Skinny push-up jeans</a>
-            </h3>
-            <div class="d-flex align-items-center">
-              <span class="h5 d-inline-block text-danger mb-0">$53.60</span>
-              <del class="d-inline-block ml-2 pl-1 text-muted">$80.00</del>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item -->
-      <div>
-        <div class="card card-product mx-auto">
-          <div class="card-product-img">
-            <a href="shop-single.php" class="card-img-top">
-              <img src="assets/img/ecommerce/shop/14.jpg" alt="Product image">
-            </a>
-            <div class="card-product-widgets-top">
-              <span class="badge product-badge badge-danger">-20%</span>
-              <div class="star-rating ml-auto">
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-              </div>
-            </div>
-            <div class="card-product-widgets-bottom">
-              <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-            </div>
-          </div>
-          <div class="card-body pb-2">
-            <h3 class="card-product-title text-truncate mb-2">
-              <a href="shop-single.php" class="nav-link">Wide heel suede ankle boots</a>
-            </h3>
-            <div class="d-flex align-items-center">
-              <span class="h5 d-inline-block text-danger mb-0">$119.16</span>
-              <del class="d-inline-block ml-2 pl-1 text-muted">$148.95</del>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item -->
-      <div>
-        <div class="card card-product mx-auto">
-          <div class="card-product-img">
-            <a href="shop-single.php" class="card-img-top">
-              <img src="assets/img/ecommerce/shop/09.jpg" alt="Product image" draggable="false">
-            </a>
-            <div class="card-product-widgets-top">
-              <span class="badge product-badge badge-danger">-50%</span>
-              <div class="star-rating ml-auto">
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star-filled active"></i>
-                <i class="sr-star cxi-star"></i>
-              </div>
-            </div>
-            <div class="card-product-widgets-bottom">
-              <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-            </div>
-          </div>
-          <div class="card-body pb-2">
-            <h3 class="card-product-title text-truncate mb-2">
-              <a href="shop-single.php" class="nav-link">Basic hooded sweatshirt in pink</a>
-            </h3>
-            <div class="d-flex align-items-center">
-              <span class="h5 d-inline-block text-danger mb-0">$15.50</span>
-              <del class="d-inline-block ml-2 pl-1 text-muted">$31.00</del>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item -->
-      <div>
-        <div class="card card-product mx-auto">
-          <div class="card-product-img">
-            <a href="shop-single.php" class="card-img-top">
-              <img src="assets/img/ecommerce/shop/13.jpg" alt="Product image" draggable="false">
-            </a>
-            <div class="card-product-widgets-top">
-              <span class="badge product-badge badge-danger">-60%</span>
-            </div>
-            <div class="card-product-widgets-bottom">
-              <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-            </div>
-          </div>
-          <div class="card-body pb-2">
-            <h3 class="card-product-title text-truncate mb-2">
-              <a href="shop-single.php" class="nav-link">Metal bridge sunglasses</a>
-            </h3>
-            <div class="d-flex align-items-center">
-              <span class="h5 d-inline-block text-danger mb-0">$35.98</span>
-              <del class="d-inline-block ml-2 pl-1 text-muted">$89.95</del>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="text-center pb-3 pt-4 pt-md-5">
-    <a href="catalogo.php" class="btn btn-outline-primary btn-lg">Ver todos los productos</a>
-  </div>
-</section>
-
 <!-- Services -->
 <section class="container pt-5 pb-2 pb-sm-5 py-md-5">
   <h2 class="h1 mb-5 pb-3 text-center">Ofrecemos</h2>
@@ -830,10 +566,10 @@ while ($row = mysqli_fetch_assoc($result)) {
   <div class="container pt-md-4 pb-2 pt-lg-0 pb-lg-0">
     <div class="row">
       <div class="col-md-4 text-center text-md-left pb-2 pb-md-0 mb-4 mb-md-0">
-        <p class="text-dark text-uppercase mb-2">Siguenos en Instagram</p>
-        <h1 class="h1 pb-2 pb-md-3" style="font-size: 35px;"><?php echo $instagram_usuario; ?></h1>
-        <a href="<?php echo $instagram; ?>" target="_blank" class="btn btn-outline-primary btn-lg">
-          <i class="cxi-instagram font-size-lg mr-1"></i>
+        <p class="text-dark text-uppercase mb-2">Siguenos en Facebook</p>
+        <h1 class="h1 pb-2 pb-md-3" style="font-size: 35px;">Tu Punto de Moda Oficial</h1>
+        <a href="https://www.facebook.com/Tupuntodemodaoriginal" target="_blank" class="btn btn-outline-primary btn-lg">
+          <i class="cxi-facebook font-size-lg mr-1"></i>
           Seguir
         </a>
       </div>
@@ -850,15 +586,15 @@ while ($row = mysqli_fetch_assoc($result)) {
           }'>
             <!-- Image -->
             <div>
-              <img src="assets/img/ecommerce/home/hero-slider/banner1.jpg" alt="Image" draggable="false" style="width: 202px; height: 269.33px;">
+              <img src="assets/img/ecommerce/home/hero-slider/cuadro1.jpg" alt="Image" draggable="false" style="width: 202px; height: 269.33px;">
             </div>
             <!-- Image -->
             <div>
-              <img src="assets/img/ecommerce/home/hero-slider/banner2.jpg" alt="Image" draggable="false" style="width: 202px; height: 269.33px;">
+              <img src="assets/img/ecommerce/home/hero-slider/cuadro2.jpg" alt="Image" draggable="false" style="width: 202px; height: 269.33px;">
             </div>
             <!-- Image -->
             <div>
-              <img src="assets/img/ecommerce/home/hero-slider/banner4.jpg" alt="Image" draggable="false" style="width: 202px; height: 269.33px;">
+              <img src="assets/img/ecommerce/home/hero-slider/cuadro3.jpg" alt="Image" draggable="false" style="width: 202px; height: 269.33px;">
             </div>
           </div>
         </div>
