@@ -3,10 +3,23 @@
 include 'Vistas/template/header.php';
 
 // Verificar si NO se ha iniciado sesión y NO hay un token almacenado
-if (!isset($_SESSION['token'])) {
-    header('Location: login.php');
-    exit;
+session_start();
+
+// Incluir el archivo de conexión
+include '../conexion.php';
+
+// Verificar si el usuario tiene permisos de administrador
+if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
+    // El usuario tiene permisos de administrador, muestra la página de administración
+    echo "Bienvenido, administrador.";
+    // Aquí puedes incluir el contenido de tu página administrativa
+} else {
+    // El usuario no tiene permisos de administrador, redirige a la página principal
+    echo "Acceso denegado. No tiene permisos administrativos.";
+    header('Location: index.php');
+    exit();
 }
+?>
 ?>
           <!-- Page title-->
           <div class="border-bottom pt-5 mt-2 mb-5">

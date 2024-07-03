@@ -40,6 +40,7 @@ if (isset($_POST['eliminar_subcategoria'])) {
     // Realizar la consulta para eliminar la categoría de la base de datos
     $query = "DELETE FROM subcategoria WHERE id = $subcategoria_id";
     $result = mysqli_query($conn, $query);
+    
 
     if ($result) {
         // Mostrar mensaje de éxito si la categoría se eliminó correctamente

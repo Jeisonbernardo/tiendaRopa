@@ -363,7 +363,7 @@
                 <ul class="list-unstyled border-bottom mb-0 p-4">
                   <li class="d-flex justify-content-between mb-2">
                     <strong><span class="fw-bold">Total:</span></strong>
-                    <span class="fw-bold">$198.65</span>
+                    <span class="fw-bold">$<?php echo number_format($total, 2); ?></span>
                   </li>
                   <li class="d-flex justify-content-between mb-2">
                     <span>Costos de envío:</span>
@@ -376,7 +376,7 @@
                 </ul>
                 <div class="d-flex justify-content-between p-4">
                   <span class="h5 mb-0">Monto a pagar:</span>
-                  <span class="h5 mb-0">$230.00</span>
+                  <span class="h5 mb-0">$<?php echo number_format($total, 2) + 25;?></span>
                 </div>
               </div>
               <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button>
@@ -421,7 +421,7 @@ btn_pagar.addEventListener('click', function (e) {
     Culqi.settings({
     title: 'Culqi Store',
     currency: 'PEN',  // Este parámetro es requerido para realizar pagos yape
-    amount: 1000,  // Este parámetro es requerido para realizar pagos yape
+    amount: <?php echo number_format($total, 2) + 25;?>,  // Este parámetro es requerido para realizar pagos yape
    // order: 'ord_live_0CjjdWhFpEAZlxlz', // Este parámetro es requerido para realizar pagos con pagoEfectivo, billeteras y Cuotéalo
    // xculqirsaid: 'Inserta aquí el id de tu llave pública RSA',
     //rsapublickey: 'Inserta aquí tu llave pública RSA',

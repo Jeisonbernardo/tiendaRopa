@@ -2,53 +2,43 @@
 
 // Incluir el archivo de conexión
 include 'conexion.php';
-
 session_start();
 
 if (isset($_GET['logout']) && $_GET['logout'] == 1) {
-  session_destroy();
-
-  // Redirige al usuario a la página actual después de cerrar sesión usando JavaScript
-  echo '<script>window.location.href = window.location.pathname;</script>';
-  exit();
+    session_destroy();
+    echo '<script>window.location.href = window.location.pathname;</script>';
+    exit();
 }
 
-// Verificar si se envió el formulario de registro
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
-  // Obtener y limpiar los datos ingresados por el usuario
-  $nombre = trim($_POST['name']);
-  $apellido = trim($_POST['lastname']);
-  $email = trim($_POST['email']);
-  $contrasena = $_POST['password'];
-  $confirmarContrasena = $_POST['confirm_password'];
+    $nombre = trim($_POST['name']);
+    $apellido = trim($_POST['lastname']);
+    $email = trim($_POST['email']);
+    $contrasena = $_POST['password'];
+    $confirmarContrasena = $_POST['confirm_password'];
 
-  // Verificar que las contraseñas coincidan y tengan al menos 8 caracteres
-  if ($contrasena !== $confirmarContrasena) {
-
-    $error = "Error: Las contraseñas no coinciden. Por favor, verifica las contraseñas e intenta nuevamente.";
-  } elseif (strlen($contrasena) < 8) {
-    $error = "Error: La contraseña debe tener al menos 8 caracteres.";
-  } else {
-    // Verificar si el correo electrónico ya está registrado
-    $query = "SELECT * FROM cliente WHERE email='$email'";
-    $result = mysqli_query($conn, $query);
-
-    if (mysqli_num_rows($result) > 0) {
-      $error = "Error: El correo electrónico ya está registrado. Por favor, intenta con otro correo.";
+    if ($contrasena !== $confirmarContrasena) {
+        $error = "Error: Las contraseñas no coinciden. Por favor, verifica las contraseñas e intenta nuevamente.";
+    } elseif (strlen($contrasena) < 8) {
+        $error = "Error: La contraseña debe tener al menos 8 caracteres.";
     } else {
-      // Hash de la contraseña (opcional: puedes usar password_hash() para mayor seguridad)
-      $contrasenaHash = md5($contrasena);
+        $query = "SELECT * FROM cliente WHERE email='$email'";
+        $result = mysqli_query($conn, $query);
 
-      // Realizar la inserción en la tabla cliente
-      $sqlInsert = "INSERT INTO cliente (nombre, apellido, email, contraseña) VALUES ('$nombre', '$apellido', '$email', '$contrasenaHash')";
+        if (mysqli_num_rows($result) > 0) {
+            $error = "Error: El correo electrónico ya está registrado. Por favor, intenta con otro correo.";
+        } else {
+            $contrasenaHash = md5($contrasena); // Considera usar password_hash() para mayor seguridad
+            $con_contraseñaHash= md5($confirmarContrasena);
+            $sqlInsert = "INSERT INTO cliente (nombre, apellido, email, contraseña,confirmar_contraseña) VALUES ('$nombre', '$apellido', '$email', '$contrasenaHash','$con_contraseñaHash')";
 
-      if ($conn->query($sqlInsert) === TRUE) {
-        $success = "¡Éxito! Estás registrado. Inicia sesión.";
-      } else {
-        $error = "Error en el registro. Inténtalo de nuevo.";
-      }
+            if ($conn->query($sqlInsert) === TRUE) {
+                $success = "¡Éxito! Estás registrado. Inicia sesión.";
+            } else {
+                $error = "Error en el registro. Inténtalo de nuevo.";
+            }
+        }
     }
-  }
 }
 
 // Proceso de inicio de sesión
@@ -61,26 +51,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
   $result = $conn->query($sqlSelect);
 
   if ($result->num_rows == 1) {
-    $row = $result->fetch_assoc();
-    if (md5($contrasena) === $row['contraseña']) {
-      // Genera un token personalizado (puedes usar una función más segura para esto)
-      $token = md5(uniqid(rand(), true));
+      $row = $result->fetch_assoc();
+      if (md5($contrasena) === $row['contraseña']) {
+          // Genera un token personalizado
+          $token = md5(uniqid(rand(), true));
 
-      // Actualiza el token en la base de datos
-      $sqlUpdateToken = "UPDATE cliente SET token='$token' WHERE email='$email'";
-      $conn->query($sqlUpdateToken);
+          // Actualiza el token en la base de datos
+          $sqlUpdateToken = "UPDATE cliente SET token='$token' WHERE email='$email'";
+          $conn->query($sqlUpdateToken);
 
-      // Almacena el token en una sesión
-      $_SESSION["user_token"] = $token;
+          // Almacena el token y el email en la sesión
+          $_SESSION["user_token"] = $token;
+          $_SESSION["email"] = $email;
 
-      // Redirige al usuario a la página actual después de iniciar sesión
-      $success = "Éxito: Sesión iniciada.";
-      header("Location: " . $_SERVER['REQUEST_URI']);
-    } else {
-      $error = "Error: Contraseña incorrecta.";
-    }
+          // Marca al usuario como administrador si corresponde
+          if ($email == 'admin1@gmail.com') {
+              $_SESSION["is_admin"] = true;
+          }
+
+          // Redirige al usuario a la página actual después de iniciar sesión
+          header("Location: " . $_SERVER['REQUEST_URI']);
+          exit();
+      } else {
+          $error = "Error: Contraseña incorrecta.";
+      }
   } else {
-    $error = "Error: Correo electrónico no registrado.";
+      $error = "Error: Correo electrónico no registrado.";
   }
 }
 
@@ -820,11 +816,9 @@ while ($row = mysqli_fetch_assoc($result)) {
               <li class="nav-item">
                 <a href="index.php" class="nav-link">Inicio</a>
               </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tienda</a>
-                <ul class="dropdown-menu">
-                  <li><a href="catalogo.php" class="dropdown-item">Catálogo</a></li>
-                </ul>
+              <li class="nav-item">
+                <a href="catalogo.php" class="nav-link" >Tienda</a>
+          
               </li>
               <li class="nav-item dropdown mega-dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menú</a>
@@ -883,8 +877,22 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Información</a>
                 <ul class="dropdown-menu">
                   <li><a href="contacto.php" class="dropdown-item">Contactanos</a></li>
-                  <li><a href="order-tracking.php" class="dropdown-item">Seguimiento del pedido</a></li>
+    
                 </ul>
+              </li>
+              
+              <li class="nav-item">
+               <?php
+    if (isset($error)) {
+        echo "<p>$error</p>";
+    }
+
+    // Mostrar el botón de administración si el usuario es admin
+    if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
+        echo '<a href="admin/index.php" class="nav-link">Ir al panel de administración</a>';
+    }
+    ?>
+          
               </li>
 
               <!--modificar pa cel-->
