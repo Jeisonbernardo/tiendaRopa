@@ -1,4 +1,4 @@
- <!-- HTML + navbar -->
+ <!-- HTML + navbar --> hola
  <?php include 'navbar.php';
 
 // Consultar los datos de la tabla "tiendaconfig"
