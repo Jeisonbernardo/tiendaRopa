@@ -30,44 +30,43 @@ if ($result->num_rows > 0) {
 
 
 ?>
-
 <footer class="cs-footer pt-sm-5 pt-4 bg-dark">
   <div class="container pt-3">
     <div class="row pb-sm-2">
       <div class="col-6 col-sm-3 col-lg-2 mb-4">
         <h3 class="h6 mb-2 pb-1 text-uppercase text-light">Ayuda</h3>
         <ul class="nav nav-light flex-column">
-          <li class="nav-item mb-2">
+          <!--<li class="nav-item mb-2">
             <a href="#" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Entrega y devoluciones</a>
-          </li>
+          </li>-->
           <li class="nav-item mb-2">
-            <a href="contacts.html" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Preguntas frecuentes</a>
+            <a href="contacto.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Preguntas frecuentes</a>
           </li>
-          <li class="nav-item mb-2">
+          <!--<li class="nav-item mb-2">
             <a href="order-tracking.html" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Seguimiento de pedido</a>
-          </li>
-          <li class="nav-item mb-2">
+          </li>-->
+          <!--<li class="nav-item mb-2">
             <a href="blog.html" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Blog</a>
-          </li>
+          </li>-->
           <li class="nav-item mb-2">
-            <a href="contacts.html" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Contactos</a>
+            <a href="contacto.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Contactos</a>
           </li>
         </ul>
       </div>
       <div class="col-6 col-sm-3 col-lg-2 col-xl-3 mb-4">
         <h3 class="h6 mb-2 pb-1 text-uppercase text-light pl-xl-6">Tienda</h3>
         <ul class="nav nav-light flex-column pl-xl-6">
-          <li class="nav-item mb-2">
+          <!--<li class="nav-item mb-2">
             <a href="#" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Nuevas llegadas</a>
-          </li>
+          </li>-->
           <li class="nav-item mb-2">
-            <a href="#" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Tendencias</a>
+            <a href="catalogo.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Tendencias</a>
           </li>
-          <li class="nav-item mb-2">
+          <!--<li class="nav-item mb-2">
             <a href="#" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Ofertas</a>
-          </li>
+          </li>-->
           <li class="nav-item mb-2">
-            <a href="#" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Marcas</a>
+            <a href="catalogo.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Marcas</a>
           </li>
         </ul>
       </div>
@@ -80,15 +79,15 @@ if ($result->num_rows > 0) {
           </li>
           <li class="nav-item text-nowrap mb-2">
             <span class="text-light mr-1">Email:</span>
-            <a class="nav-link d-inline-block mr-lg-0 mr-sm-4 p-0 font-weight-normal"><?php echo $email; ?></a>
+            <a id="textoParaCopiar" onclick="copiarAlPortapapeles(event)" class="nav-link d-inline-block mr-lg-0 mr-sm-4 p-0 font-weight-normal">Tupuntodemoda@gmail.com</a>
           </li>
         </ul>
         <a href="<?php echo $facebook; ?>" target="_blank" class="social-btn sb-solid sb-light mr-2">
           <i class="cxi-facebook"></i>
         </a>
-        <a href="<?php echo $instagram; ?>" target="_blank" class="social-btn sb-solid sb-light mr-2">
+        <!--<a href="<#" target="_blank" class="social-btn sb-solid sb-light mr-2">
           <i class="cxi-instagram"></i>
-        </a>
+        </a>-->
         <!--<a href="#" class="social-btn sb-solid sb-light mr-2">
           <i class="cxi-twitter"></i>
         </a>-->
@@ -130,7 +129,7 @@ if ($result->num_rows > 0) {
 </a>
 
 <!-- Vendor scripts: js libraries and plugins-->
-<script src="assets/js/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/js/smooth-scroll.polyfills.min.js"></>
 <script src="assets/js/nouislider.min.js"></script>
 <script src="assets/vendor/jquery/dist/jquery.slim.min.js"></script>
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -771,7 +770,7 @@ if (basename($_SERVER['PHP_SELF']) === 'catalogo.php') {
 
 
 <!-- Main theme script-->
-    <script src="assets/js/cleave.min.js"></script>
+<script src="assets/js/cleave.min.js"></script>
 <script src="assets/js/theme.min.js"></script>
 <script src="assets/js/simplebar.min.js"></script>
 <script src="assets/js/java.js"></script>
