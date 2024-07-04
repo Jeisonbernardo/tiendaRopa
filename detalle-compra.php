@@ -110,7 +110,7 @@
                 <input type="number" name="newQuantity" class="form-control form-control-sm bg-light mr-3 cart-quantity-input" style="width: 4.5rem;" value="<?php echo $cantidad; ?>" required min="1" max="<?php echo $stock; ?>" data-price="<?php echo $precio; ?>" data-cart-item="<?php echo 'cart-item-' . $index; ?>">
                 <button type="submit" class="btn btn-outline-secondary btn-sm">Actualizar</button>
               </form>
-              <div class="text-nowrap pt-2"><strong class="text-danger">$<?php echo number_format($precio * $cantidad, 2); ?></strong> <s class="font-size-xs text-muted">$<?php echo number_format(($precio / 4.0), 2); ?></s></div>
+              <div class="text-nowrap pt-2"><strong class="text-danger">S/<?php echo number_format($precio * $cantidad, 2); ?></strong> <s class="font-size-xs text-muted">$<?php echo number_format(($precio / 4.0), 2); ?></s></div>
             </div>
             <div class="d-flex align-items-center flex-sm-column text-sm-center ml-sm-auto pt-3 pt-sm-0">
               <form method="post" action="">
@@ -124,10 +124,10 @@
               if (isset($_SESSION["user_token"])) {
                 $user_token = $_SESSION["user_token"];
               ?>
-                <button class="btn btn-link btn-sm text-decoration-none pt-0 pt-sm-2 px-0 pb-0 mt-0 mt-sm-1">
+                <!--<button class="btn btn-link btn-sm text-decoration-none pt-0 pt-sm-2 px-0 pb-0 mt-0 mt-sm-1">
                   Añadir a Favoritos
                   <i class="cxi-heart ml-1"></i>
-                </button>
+                </button>-->
               <?php
               }
               ?>
@@ -140,7 +140,7 @@
     }
   ?>
   <div class="px-3 px-sm-4 py-4 text-right">
-    <span class="text-muted">Total:<strong class="text-dark font-size-lg ml-2">$<?php echo number_format($total, 2); ?></strong></span>
+    <span class="text-muted">Total:<strong class="text-dark font-size-lg ml-2">S/<?php echo number_format($total, 2); ?></strong></span>
   </div>
   <?php
   }
@@ -208,7 +208,7 @@
                   <strong class="d-block">Envío por courier a tu dirección</strong>
                   <span class="text-muted font-size-sm">Fecha estimada: 9 de noviembre</span>
                 </span>
-                <span class="ml-auto">$25.00</span>
+                <span class="ml-auto">S/25.00</span>
               </label>
             </div>
             <div class="custom-control custom-radio mb-3">
@@ -221,14 +221,14 @@
                 <span class="ml-auto">Gratis</span>
               </label>
             </div>
-            <div class="custom-control custom-radio mb-3">
+            <!--<div class="custom-control custom-radio mb-3">
               <input type="radio" class="custom-control-input" id="ups" name="shipping">
               <label for="ups" class="custom-control-label d-flex align-items-center">
                 <span>
                   <strong class="d-block">Envío por UPS Ground</strong>
                   <span class="text-muted font-size-sm">Hasta una semana</span>
                 </span>
-                <span class="ml-auto">$10.00</span>
+                <span class="ml-auto">S/10.00</span>
               </label>
             </div>
             <div class="custom-control custom-radio mb-3">
@@ -250,20 +250,20 @@
                 </span>
                 <span class="ml-auto">$15.00</span>
               </label>
-            </div>
+            </div>-->
 
             <hr class="border-top-0 border-bottom pt-4 mb-4">
 
             <!-- Payment -->
-            <h2 class="h4 pt-2 mb-4">4. Método de Pago</h2>
+            <!--<h2 class="h4 pt-2 mb-4">4. Método de Pago</h2>
             <div class="row pb-4">
-              <div class="col-lg-7">
+              <div class="col-lg-7">-->
 
                 <!-- Payment accordion -->
-                <div class="accordion-alt" id="payment-methods">
+                <!-- <div class="accordion-alt" id="payment-methods"> -->
 
                   <!-- Card: Credit card -->
-                  <div class="card mb-3 px-4 py-3 border rounded box-shadow-sm">
+                  <!--<div class="card mb-3 px-4 py-3 border rounded box-shadow-sm">
                     <div class="card-header py-2">
                       <div class="accordion-heading custom-control custom-radio" data-toggle="collapse" data-target="#cc-card">
                         <input type="radio" class="custom-control-input" id="cc" name="payment" checked>
@@ -293,10 +293,10 @@
                       </div>
 
                     </div>
-                  </div>
+                  </div>-->
 
                   <!-- Card: PayPal -->
-                  <div class="card mb-3 px-4 py-3 border rounded box-shadow-sm">
+                  <!-- <div class="card mb-3 px-4 py-3 border rounded box-shadow-sm">
                     <div class="card-header py-2">
                       <div class="accordion-heading custom-control custom-radio" data-toggle="collapse" data-target="#paypal-card">
                         <input type="radio" class="custom-control-input" id="paypal" name="payment">
@@ -313,10 +313,10 @@
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
 
                   <!-- Card: Cash -->
-                  <div class="card mb-3 px-4 py-3 border rounded box-shadow-sm">
+                  <!-- <div class="card mb-3 px-4 py-3 border rounded box-shadow-sm">
                     <div class="card-header py-2">
                       <div class="accordion-heading custom-control custom-radio" data-toggle="collapse" data-target="#cash-card">
                         <input type="radio" class="custom-control-input" id="cash" name="payment">
@@ -336,10 +336,10 @@
               </div>
             </div>
 
-            <hr class="mb-4 pb-2">
+            <hr class="mb-4 pb-2">-->
 
             <!-- Additional info -->
-            <h2 class="h4 mb-4">5. Información Adicional (Opcional)</h2>
+            <h2 class="h4 mb-4">4. Información Adicional (Opcional)</h2>
             <div class="form-group">
               <label for="ch-notes">Agregar notas</label>
               <textarea id="ch-notes" class="form-control form-control-lg" rows="5" placeholder="Notes para su pedido, por ejemplo, nota especial para la entrega"></textarea>
@@ -350,11 +350,11 @@
           <aside class="col-lg-4" style="margin-top: -120px;">
             <div class="position-sticky top-0">
               <div class="mb-4" style="padding-top: 120px;">
-                <label for="promo-code" class="form-label-lg">Aplicar un cupón de promoción</label>
+                <!--<label for="promo-code" class="form-label-lg">Aplicar un cupón de promoción</label>
                 <div class="input-group input-group-lg">
                   <input type="text" id="promo-code" class="form-control" placeholder="Introduce el código del cupón">
                   <button type="button" class="btn btn-primary px-4">&nbsp;&nbsp;Aplicar&nbsp;&nbsp;</button>
-                </div>
+                </div>-->
               </div>
               <div class="bg-secondary rounded mb-4">
                 <div class="border-bottom p-4">
@@ -363,11 +363,11 @@
                 <ul class="list-unstyled border-bottom mb-0 p-4">
                   <li class="d-flex justify-content-between mb-2">
                     <strong><span class="fw-bold">Total:</span></strong>
-                    <span class="fw-bold">$<?php echo number_format($total, 2); ?></span>
+                    <span class="fw-bold">S/<?php echo number_format($total, 2); ?></span>
                   </li>
                   <li class="d-flex justify-content-between mb-2">
                     <span>Costos de envío:</span>
-                    <span>$25.00</span>
+                    <span>S/25.00</span>
                   </li>
                   <li class="d-flex justify-content-between mb-2">
                     <span>Descuento:</span>
@@ -376,10 +376,17 @@
                 </ul>
                 <div class="d-flex justify-content-between p-4">
                   <span class="h5 mb-0">Monto a pagar:</span>
-                  <span class="h5 mb-0">$<?php echo number_format($total, 2) + 25;?></span>
+                  <span class="h5 mb-0">S/<?php echo number_format($total, 2) + 25;?></span>
                 </div>
               </div>
-              <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button>
+              <?php
+              if (isset($_SESSION["user_token"])) {
+                $user_token = $_SESSION["user_token"];
+              ?>
+                <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button>
+              <?php
+              }
+              ?>
             </div>
           </aside>
 
