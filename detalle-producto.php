@@ -170,13 +170,14 @@ include 'navbar.php';
     </div>
     <div class="col-md-6 pl-xl-5">
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-
+        
         <!-- Price -->
         <div class="d-flex align-items-center mb-sm-0 mb-4">
           <span class="h3 d-inline-block mb-0 text-danger precio-span"><?php echo 'S/.' . $precio; ?></span>
-          <del class="d-inline-block ml-2 pl-1 font-size-lg text-muted">$31.00</del>
-          <span class="ml-4 p-2 badge badge-danger font-size-base font-weight-bold">- 50%</span>
+          <!--<del class="d-inline-block ml-2 pl-1 font-size-lg text-muted">$31.00</del>
+          <span class="ml-4 p-2 badge badge-danger font-size-base font-weight-bold">- 50%</span>-->
         </div>
+
 
         <!-- Rating -->
         <div class="text-sm-right">
@@ -222,10 +223,10 @@ include 'navbar.php';
           if (isset($_SESSION["user_token"])) {
             $user_token = $_SESSION["user_token"];
           ?>
-            <button class="btn btn-block btn-outline-primary px-lg-4">
+            <!--<button class="btn btn-block btn-outline-primary px-lg-4">
               <i class="cxi-heart mr-2"></i>
               Favoritos
-            </button>
+            </button>-->
           <?php
           } else {
             // Aquí puedes agregar el contenido que deseas mostrar cuando el usuario no tiene sesión iniciada
@@ -250,7 +251,7 @@ include 'navbar.php';
           <div class="collapse" id="delivery" aria-labelledby="delivery-card" data-parent="#productTerms">
             <div class="card-body">
               <p class="font-size-sm">
-                Envío estándar gratuito en pedidos <strong>superiores a S/. 35</strong> antes de impuestos, además de devoluciones gratuitas.
+                Envío estándar gratuito en pedidos <strong>superiores a S/ 35</strong> antes de impuestos, además de devoluciones gratuitas.
               </p>
 
               <!-- Tabla de envío -->
@@ -267,12 +268,7 @@ include 'navbar.php';
                     <tr>
                       <th class="font-weight-normal">Envío estándar</th>
                       <td>1-4 días hábiles</td>
-                      <td>S/. 4.50</td>
-                    </tr>
-                    <tr>
-                      <th class="font-weight-normal">Envío express</th>
-                      <td>1 día hábil</td>
-                      <td>S/. 10.00</td>
+                      <td>S/ 25.00</td>
                     </tr>
                     <tr>
                       <th class="font-weight-normal">Recoger en tienda</th>
@@ -301,7 +297,6 @@ include 'navbar.php';
             </p>
             <ul class="mb-4 pl-3">
               <li>Devolución gratuita en tienda</li>
-              <li>Devolución gratuita a través del Servicio de Entrega de USPS</li>
             </ul>
           </div>
         </div>
@@ -318,11 +313,11 @@ include 'navbar.php';
         $url_producto = $url_actual;
         ?>
 
-        <h6 class="d-inline-block align-middle mr-2 mb-0">Compartir en:</h6>
+        <!--<h6 class="d-inline-block align-middle mr-2 mb-0">Compartir en:</h6>
         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($url_producto); ?>&quote=<?php echo urlencode($mensaje_facebook); ?>" class="social-btn sb-solid align-middle mr-2" target="_blank" title="Facebook" onclick="window.open(this.href, 'Compartir en Facebook', 'width=600,height=400'); return false;">
           <i class="cxi-facebook"></i>
         </a>
-        <!--<a href="#" class="social-btn sb-solid align-middle mr-2" data-toggle="tooltip" title="Twitter">
+        <a href="#" class="social-btn sb-solid align-middle mr-2" data-toggle="tooltip" title="Twitter">
                 <i class="cxi-twitter"></i>
               </a>
               <a href="#" class="social-btn sb-solid align-middle" data-toggle="tooltip" title="Pinterest">
@@ -331,7 +326,7 @@ include 'navbar.php';
       </div>
 
       <!-- Payment -->
-      <div class="pb-3 text-nowrap" data-simplebar data-simplebar-auto-hide="false">
+      <!--<div class="pb-3 text-nowrap" data-simplebar data-simplebar-auto-hide="false">
         <a class="d-inline-block mb-3 mr-xl-4 mr-3">
           <img src="assets/img/ecommerce/cards/visa.jpg" alt="Visa" class="border rounded" draggable="false">
         </a>
@@ -341,9 +336,9 @@ include 'navbar.php';
         <a class="d-inline-block mb-3">
           <img src="assets/img/ecommerce/cards/pay-pal.jpg" alt="PayPal" class="border rounded" draggable="false">
         </a>
-      </div>
+      </div>-->
     </div>
-  </div>
+  </div><br><br><br><br>
 </section>
 
 <div class="py-5" style="background-color: #e5e8ed;">
@@ -360,7 +355,7 @@ include 'navbar.php';
           <li>Detalles cuidadosamente elaborados para resaltar tu individualidad.</li>
         </ul>
         <hr class="my-4">
-        <h3 class="h5 mb-3">Care</h3>
+        <h3 class="h5 mb-3">Cuidado</h3>
         <ul class="pl-0">
           <li class="media">
             <img src="assets/img/ecommerce/care/hand-wash.svg" alt="Icon" class="d-block mr-3" draggable="false">
@@ -408,9 +403,9 @@ include 'navbar.php';
                 <i class="sr-star cxi-star"></i>
               </div>
             </div>
-            <div class="card-product-widgets-bottom">
+            <!--<div class="card-product-widgets-bottom">
               <a class="btn-wishlist ml-auto" href="#" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-            </div>
+            </div>-->
           </div>
           <div class="card-body pb-2" style="background-color: white;">
             <h3 class="card-product-title text-truncate mb-2">
@@ -418,7 +413,7 @@ include 'navbar.php';
             </h3>
             <div class="d-flex align-items-center">
               <span class="h5 d-inline-block mb-0 precio-span text-danger"><?php echo 'S/.' . $precio; ?></span>
-              <del class="d-inline-block ml-2 pl-1 text-muted">$31.00</del>
+              <!--<del class="d-inline-block ml-2 pl-1 text-muted">$31.00</del>-->
             </div>
             <div class="d-flex align-items-center mb-2 pb-1">
             </div>
@@ -533,7 +528,7 @@ include 'navbar.php';
       </div>
 
       <!-- Button + sorting -->
-      <div class="d-flex align-items-center justify-content-between mb-4 pb-2 pb-sm-4">
+      <!--<div class="d-flex align-items-center justify-content-between mb-4 pb-2 pb-sm-4">
         <a href="#modal-review" data-toggle="modal" class="btn btn-primary">Leave a review</a>
         <div class="form-inline">
           <label for="sort-orders" class="d-none d-sm-block font-weight-bold mr-2 pr-1">Sort by</label>
@@ -544,10 +539,10 @@ include 'navbar.php';
             <option>Low rating</option>
           </select>
         </div>
-      </div>
+      </div>-->
 
       <!-- Review -->
-      <div class="mb-4 pb-4 border-bottom">
+      <!--<div class="mb-4 pb-4 border-bottom">
         <div class="row">
           <div class="col-md-3 col-sm-4 mb-sm-0 mb-3">
             <h3 class="mb-2 font-size-lg">Devon Lane</h3>
@@ -576,7 +571,7 @@ include 'navbar.php';
         </div>
       </div>
 
-      <!-- Review -->
+      
       <div class="mb-4 pb-4 border-bottom">
         <div class="row">
           <div class="col-md-3 col-sm-4 mb-sm-0 mb-3">
@@ -606,7 +601,7 @@ include 'navbar.php';
         </div>
       </div>
 
-      <!-- Review -->
+      
       <div class="mb-4 pb-4 border-bottom">
         <div class="row">
           <div class="col-md-3 col-sm-4 mb-sm-0 mb-3">
@@ -636,7 +631,7 @@ include 'navbar.php';
         </div>
       </div>
 
-      <!-- Review -->
+      
       <div class="mb-4 pb-4 border-bottom">
         <div class="row">
           <div class="col-md-3 col-sm-4 mb-sm-0 mb-3">
@@ -664,10 +659,10 @@ include 'navbar.php';
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <!-- Pagination: With icons -->
-      <nav class="mt-4 pt-4" aria-label="Reviews pagination">
+      <!--<nav class="mt-4 pt-4" aria-label="Reviews pagination">
         <ul class="pagination justify-content-center mb-0">
           <li class="page-item d-sm-none">
             <span class="page-link page-link-static">1 / 4</span>
@@ -692,12 +687,12 @@ include 'navbar.php';
             </a>
           </li>
         </ul>
-      </nav>
+      </nav>-->
     </div>
     <div class="col-md-4 offset-lg-1">
 
       <!-- Product card carousel -->
-      <div class="card card-product">
+      <!--<div class="card card-product">
         <div class="card-product-img">
           <div class="cs-carousel cs-controls-onhover">
             <a class="cs-carousel-inner">
@@ -733,7 +728,7 @@ include 'navbar.php';
             Añadir al carrito
           </button>
         </div>
-        <div class="card-footer">
+        <div class="card-footer">-->
 
         </div>
       </div>
