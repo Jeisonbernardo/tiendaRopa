@@ -39,7 +39,7 @@ if (!empty($nombreUsuario)) {
   $instagram_usuario = 'Nombre de usuario no encontrado.';
 }
 
-// Consultar las 6 primeras categorías desde la base de datos
+
 $query = "SELECT id, nombre, imagen FROM categoria";
 $result = mysqli_query($conn, $query);
 
@@ -85,8 +85,8 @@ if ($result) {
   echo "Error al obtener las rutas de las imágenes de marca: " . mysqli_error($conn);
 }
 
-// Hacer la consulta SQL para obtener los productos
-$query = "SELECT id, nombre, precio FROM producto LIMIT 8";
+// Hacer la consulta SQL para obtener los productos ojo poner LIMIT 8 para mostrar solo 8
+$query = "SELECT id, nombre, precio FROM producto";
 $result = mysqli_query($conn, $query);
 
 // Inicializar un array para almacenar los datos de los productos
