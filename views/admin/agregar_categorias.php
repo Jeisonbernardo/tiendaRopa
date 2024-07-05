@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $nombreImagenFormateado = time() . '_' . strtolower(str_replace(' ', '_', $nombrecategoria)) . '.' . $extension;
 
       // Mover la imagen a la carpeta donde se almacenarán las imágenes de categoría
-      $rutaImagen = '<?php BASE_URL;?>admin/assets/img/categoria_img/' . $nombreImagenFormateado;
+      $rutaImagen = '../../admin/assets/img/categoria_img/' . $nombreImagenFormateado;
       move_uploaded_file($imagen, $rutaImagen);
 
       // Redimensionar la imagen a 340x340 píxeles
