@@ -406,7 +406,7 @@
   
 <!--------------------------------------Pago con paypal---------------------------->
 <!-- 1) llamar el script y poner el clientID -->    
-<script src="https://www.paypal.com/sdk/js?client-id=AXGetphgtHoGJmMMv3DLIaPp6ZU8LCr8sMgfgbGCBzTxIJAx6JnZK_c3c5ZIZ45cG_ikict-idoaV1O1&currency=MNX"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AXGetphgtHoGJmMMv3DLIaPp6ZU8LCr8sMgfgbGCBzTxIJAx6JnZK_c3c5ZIZ45cG_ikict-idoaV1O1&currency=MXN"></script>
 
 
 <script>
@@ -432,10 +432,20 @@
       });
 
     },
-    
+
+
+    //funcion cuando case realiza el pago
+    onApprove: function(data,actions){
+      actions.order.capture().then(function(detalles){
+        console.log(detalles);
+
+      });
+    },
+
     //funcion cuando cancele pago
     onCancel: function(data) {
-      console.log(data)
+      alert("pago cancelado");
+      console.log(data);
     }
 
 
