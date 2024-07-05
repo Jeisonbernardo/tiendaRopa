@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
             <a href="#" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Entrega y devoluciones</a>
           </li>-->
           <li class="nav-item mb-2">
-            <a href="contacto.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Preguntas frecuentes</a>
+            <a href="preguntas.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Preguntas frecuentes</a>
           </li>
           <!--<li class="nav-item mb-2">
             <a href="order-tracking.html" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Seguimiento de pedido</a>
