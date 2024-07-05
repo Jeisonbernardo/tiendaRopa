@@ -86,7 +86,7 @@ if ($result) {
 }
 
 // Hacer la consulta SQL para obtener los productos ojo poner LIMIT 8 para mostrar solo 8
-$query = "SELECT id, nombre, precio FROM producto";
+$query = "SELECT id, nombre, precio FROM producto ORDER BY nombre desc";
 $result = mysqli_query($conn, $query);
 
 // Inicializar un array para almacenar los datos de los productos
