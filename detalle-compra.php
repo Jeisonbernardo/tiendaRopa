@@ -384,9 +384,11 @@
                 $user_token = $_SESSION["user_token"];
               ?>
                 <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button>
+                
               <?php
               }
               ?>
+              <div id="paypal-button-container"></div>
             </div>
           </aside>
 
@@ -398,6 +400,57 @@
 
       <!-- Footer -->
       <?php include 'footer.php'; ?>
+
+
+  
+  
+<!--------------------------------------Pago con paypal---------------------------->
+<!-- 1) llamar el script y poner el clientID -->    
+<script src="https://www.paypal.com/sdk/js?client-id=AXGetphgtHoGJmMMv3DLIaPp6ZU8LCr8sMgfgbGCBzTxIJAx6JnZK_c3c5ZIZ45cG_ikict-idoaV1O1&currency=MNX"></script>
+
+
+<script>
+  //inicializar paypal  
+  paypal.Buttons({
+    //estilos a los botones
+    style:{
+      color:'blue',
+      shape:'pill',
+      label:'pay'
+    },
+
+    //parametro para unidades a agregar
+    createOrder:function(data, actions){
+      return actions.order.create({
+        purchase_units:[{
+          amount:{
+            //añadir pago 
+            value: 98
+          }
+        }]
+
+      });
+
+    },
+    
+    //funcion cuando cancele pago
+    onCancel: function(data) {
+      console.log(data)
+    }
+
+
+
+
+
+
+
+
+  }).render('#paypal-button-container'); //id del div del boton
+</script>
+
+
+
+
 
       <script>
 
