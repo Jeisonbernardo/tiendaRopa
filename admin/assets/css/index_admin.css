@@ -1,0 +1,19 @@
+
+.bienvenida {
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+.bienvenida:hover {
+    color: blue;
+}
+.card {
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    
+}
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background:rgba(75, 152, 74, 0.8);
+    color: white;
+}

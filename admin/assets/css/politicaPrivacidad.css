@@ -1,0 +1,32 @@
+.privacy-policy {
+    background-color: #f8f9fa; 
+    padding: 20px; 
+    margin-top: 50px; 
+    border: 1px solid #dee2e6; 
+    border-radius: 5px; 
+    max-width: 1000px; 
+    margin: auto;
+}
+.privacy-policy .card {
+    border: none; 
+    box-shadow: none; 
+}
+.privacy-policy .card-header {
+    background-color: #007bff;
+    color: #ffffff; 
+    font-weight: bold; 
+    text-align: center; 
+    border-radius: 5px 5px 0 0;
+    padding: 10px;
+}
+.privacy-policy .card-body {
+    padding: 20px; /* Añadir espacio interno */
+}
+.privacy-policy .card-body p {
+    text-align: justify; /* Justificar el texto del cuerpo */
+    line-height: 1.6; /* Espaciado de línea */
+    margin-bottom: 15px; /* Espacio entre párrafos */
+}
+.privacy-policy .card-body strong {
+    color: #000000; /* Color para texto en negrita */
+}

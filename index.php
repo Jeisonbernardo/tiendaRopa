@@ -40,7 +40,7 @@ if (!empty($nombreUsuario)) {
 }
 
 // Consultar las 6 primeras categorías desde la base de datos
-$query = "SELECT id, nombre, imagen FROM categoria ORDER BY id LIMIT 6";
+$query = "SELECT id, nombre, imagen FROM categoria";
 $result = mysqli_query($conn, $query);
 
 // Crear un array para almacenar las categorías
@@ -78,7 +78,7 @@ if ($result) {
   // Recorrer los resultados y almacenar las rutas de las imágenes en el arreglo
   while ($row = mysqli_fetch_assoc($result)) {
     $rutaImagen = $row['imagen'];
-    $rutasImagenes[] = './admin/' . $rutaImagen;
+    $rutasImagenes[] = '.' . $rutaImagen;
   }
 } else {
   // Mostrar mensaje de error si la consulta falla
@@ -334,9 +334,13 @@ while ($row = mysqli_fetch_assoc($result)) {
             <div class="cs-image-inner rounded-circle mx-auto mb-4" style="max-width: 180px;">
               <?php
               // Generar la ruta completa de la imagen
-              $rutaImagen = './admin/' . $categoria['imagen'];
+              $rutaImagen = '' . $categoria['imagen'];
+              $basePath = './';
+              $finalPath = $basePath . ltrim($rutaImagen, './');
+              $finalPath = str_replace('../', '', $finalPath);
+
               ?>
-              <img src="<?php echo $rutaImagen; ?>" alt="<?php echo $categoria['nombre']; ?> image" draggable="false">
+              <img src="<?php echo $finalPath; ?>" alt="<?php echo $categoria['nombre']; ?> image" draggable="false">
             </div>
             <h3 class="h5 mb-3"><?php echo $categoria['nombre']; ?></h3>
           </a>

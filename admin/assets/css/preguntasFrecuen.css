@@ -1,0 +1,31 @@
+.faq-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+.faq-header {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+.faq-header button {
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    color: #007bff;
+}
+.faq-header button:hover {
+    text-decoration: none;
+    color: #0056b3;
+}
+.faq-body {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+    background-color: #ffffff;
+}
+.faq-body p {
+    margin: 0;
+    text-align: justify; 
+}
