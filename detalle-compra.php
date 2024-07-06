@@ -435,6 +435,7 @@
       actions.order.capture().then(function(detalles){
         console.log(detalles);
         alert("gracias por tu compra");
+        window.location.href="gracias.php"
 
       });
     },

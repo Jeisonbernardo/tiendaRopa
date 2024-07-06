@@ -87,8 +87,7 @@
 
                             // Mostrar la ventana emergente personalizada al hacer clic en el botón "Eliminar"
                             echo '<button type="button" class="btn btn-outline-danger btn-sm" onclick="showConfirmationDialog(' . $row['id_contacto'] . ')">Eliminar</button>';
-
-                            echo '</form>';
+                            echo '<button type="button" class="btn btn-outline-primary btn-sm" onclick="enviarCorreo(\'' . $row['email'] . '\')">Enviar Correo</button>';
                             echo '</td>';
                             echo '</tr>';
                         }
@@ -102,6 +101,17 @@
     </div>
 </div>
 </div> <br><br><br>
+
+<script>
+    function enviarCorreo(destinatario) {
+    var asunto = 'Asunto del correo';
+    var cuerpo = 'Contenido del correo';
+    var link = 'mailto:' + destinatario +
+               '?subject=' + encodeURIComponent(asunto) +
+               '&body=' + encodeURIComponent(cuerpo);
+    window.location.href = link;
+    }
+</script>
 
 <script src="../../admin/assets/js/contacto_admin.js"></script>
 <?php include '../template/footer_admin.php'; ?>

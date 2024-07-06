@@ -1,194 +1,162 @@
-<?php include '../../config/config.php';
-include BASE_PATH . 'config/conexion.php'; ?>
 <?php include '../template/navbar_admin.php'; ?>
-<?php 
-// Verificar si NO se ha iniciado sesión y NO hay un token almacenado
-if (!isset($_SESSION['token'])) {
-    header('Location: loginconf.php');
-    exit;
-}
+<?php include '../../model/index_admin.php'; ?>
 
-// Consultas para contar clientes, productos y usuarios
-$sqlClientes = "SELECT COUNT(*) as totalClientes FROM cliente";
-$resultClientes = $conn->query($sqlClientes);
-$totalClientes = ($resultClientes->num_rows > 0) ? $resultClientes->fetch_assoc()['totalClientes'] : 0;
 
-$sqlProductos = "SELECT COUNT(*) as totalProductos FROM producto";
-$resultProductos = $conn->query($sqlProductos);
-$totalProductos = ($resultProductos->num_rows > 0) ? $resultProductos->fetch_assoc()['totalProductos'] : 0;
+<div class="container mt-5">
+    <h1 class="text-center text-secondary">Bienvenido <?php echo $nombreUsuario;?></h1>
+    <div class="row mt-4">
 
-$sqlUsuarios = "SELECT COUNT(*) as totalUsuarios FROM (SELECT id FROM cliente UNION ALL SELECT id FROM admin) as usuarios";
-$resultUsuarios = $conn->query($sqlUsuarios);
-$totalUsuarios = ($resultUsuarios->num_rows > 0) ? $resultUsuarios->fetch_assoc()['totalUsuarios'] : 0;
+      <div class="col-sm-3">
+        <div class="card bg-primary text-white">
+          <div class="card-body text-center">
+            <i class="fas fa-user fa-3x"></i>
+            <h5 class="card-title">Clientes </h5>
+            <p class="card-text"><?php echo $totalClientes; ?></p>
+          </div>
+        </div>
+      </div>
 
-// Ventas por día
-$sql_day = "SELECT DATE(fecha_venta) as date, SUM(total) as total_sales FROM ventas GROUP BY DATE(fecha_venta)";
-$result_day = $conn->query($sql_day);
+      <div class="col-sm-3">
+        <div class="card bg-warning">
+          <div class="card-body text-center">
+          <i class="fas fa-box fa-3x "></i>
+            <h5 class="card-title">Productos</h5>
+            <p class="card-text"><?php echo $totalProductos; ?></p>
+          </div>
+        </div>
+      </div>
 
-$dates = [];
-$total_sales_day = [];
+      <div class="col-sm-3">
+        <div class="card bg-secondary text-white">
+          <div class="card-body text-center">
+          <i class="fas fa-users fa-3x"></i>
+            <h5 class="card-title">Total Usuarios</h5>
+            <p class="card-text"><?php echo $totalUsuarios; ?></p>
+          </div>
+        </div>
+      </div>
 
-if ($result_day->num_rows > 0) {
-    while($row = $result_day->fetch_assoc()) {
-        $dates[] = $row['date'];
-        $total_sales_day[] = $row['total_sales'];
-    }
-}
+      <div class="col-sm-3">
+        <div class="card bg-secondary text-white">
+            <div class="card-body text-center">
+                <i class="fas fa-money-bill-wave fa-3x"></i> <!-- Icono de dinero o billete -->
+                <h5 class="card-title">Ingresos</h5>
+                <p class="card-text">S/<?php echo  number_format($ventas_totales, 2)?></p>
+            </div>
+        </div>
+      </div>
 
-// Ventas por semana
-$sql_week = "SELECT YEARWEEK(fecha_venta, 1) as week, SUM(total) as total_sales FROM ventas GROUP BY YEARWEEK(fecha_venta, 1)";
-$result_week = $conn->query($sql_week);
+    </div>
 
-$weeks = [];
-$total_sales_week = [];
+    <div class="row mt-5" >
+      <div class="col-sm-6" id="container">
+      </div>
+      <div class="col-sm-6" id="container1">
+      </div>
+    </div>
 
-if ($result_week->num_rows > 0) {
-    while($row = $result_week->fetch_assoc()) {
-        $weeks[] = $row['week'];
-        $total_sales_week[] = $row['total_sales'];
-    }
-}
+    <div class="col mt-5">
+      <div class="text-center mb-4">
+          <h1 class="display-12 text-black font-weight-normal">Ventas</h1>
+          <select id="timeFrame" class="form-select mt-3">
+              <option value="day">Diario</option>
+              <option value="week">Semanal</option>
+              <option value="month">Mensual</option>
+              <option value="year">Anual</option>
+          </select>
+      </div>
 
-// Ventas por mes
-$sql_month = "SELECT DATE_FORMAT(fecha_venta, '%Y-%m') as month, SUM(total) as total_sales FROM ventas GROUP BY DATE_FORMAT(fecha_venta, '%Y-%m')";
-$result_month = $conn->query($sql_month);
+      <div class="text-center">
+          <canvas id="salesChart" width="400" height="200"></canvas>
+      </div>
 
-$months = [];
-$total_sales_month = [];
+      <hr class="mt-5 mb-5">
 
-if ($result_month->num_rows > 0) {
-    while($row = $result_month->fetch_assoc()) {
-        $months[] = $row['month'];
-        $total_sales_month[] = $row['total_sales'];
-    }
-}
+      <div class="text-center mb-4">
+          <h1 class="display-12 text-black font-weight-normal">Clientes más frecuentes</h1>
+      </div>
 
-// Ventas por año
-$sql_year = "SELECT YEAR(fecha_venta) as year, SUM(total) as total_sales FROM ventas GROUP BY YEAR(fecha_venta)";
-$result_year = $conn->query($sql_year);
+      <div class="text-center">
+          <canvas id="customerChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+</div>
 
-$years = [];
-$total_sales_year = [];
 
-if ($result_year->num_rows > 0) {
-    while($row = $result_year->fetch_assoc()) {
-        $years[] = $row['year'];
-        $total_sales_year[] = $row['total_sales'];
-    }
-}
-
-// Obtener ventas por cliente
-$sql = "SELECT cliente.nombre AS cliente, SUM(ventas.total) AS total_ventas 
-        FROM ventas 
-        INNER JOIN cliente ON ventas.cliente_id = cliente.id 
-        GROUP BY ventas.cliente_id 
-        ORDER BY total_ventas DESC";
-$result = $conn->query($sql);
-
-$clientes = [];
-$total_ventas = [];
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $clientes[] = $row['cliente'];
-        $total_ventas[] = $row['total_ventas'];
-    }
-}
-
-?>
-
-            <div class="container mt-5 mx-auto">
-                <h1 class="text-center bienvenida">Bienvenido <?php echo $nombreUsuario;?></h1>
-
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-user"> Clientes  </i></h5>
-                                <p class="card-text"><?php echo $totalClientes; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-box "> Productos  </i></h5>
-                                <p class="card-text"><?php echo $totalProductos; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-users"> Total usuarios</i></h5>
-                                <p class="card-text"><?php echo $totalUsuarios; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <br><br>
-
-                <h1 class="display-12 text-center text-black font-weight-normal">Ventas</h1>
-                <select id="timeFrame">
-                    <option value="day">Diario</option>
-                    <option value="week">Semanal</option>
-                    <option value="month">Mensual</option>
-                    <option value="year">Anual</option>
-                </select>
-                <canvas id="salesChart" width="400" height="200"></canvas>
-
-                <br><br>
-
-                <h1 class="display-12 text-center text-black font-weight-normal">Clientes más frecuentes</h1>
-                <canvas id="customerChart" width="400" height="200"></canvas>
-            </div> <br><br><br>
-        
-
-    <script>
-        var clientes = <?php echo json_encode($clientes); ?>;
-        var total_ventas = <?php echo json_encode($total_ventas); ?>;
-
-        var ctx = document.getElementById('customerChart').getContext('2d');
-        var customerChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: clientes,
-                datasets: [{
-                    label: 'Total Ventas (Soles)',
-                    data: total_ventas,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var datosCategorias = <?php echo json_encode($datosCategorias); ?>;
+        Highcharts.chart('container', {
+            chart: {
+                type: 'pie'
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Soles'
-                        },
-                        ticks: {
-                            callback: function(value, index, values) {
-                                return 'S/ ' + value;
-                            }
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Clientes'
-                        }
+            title: {
+                text: 'Distribución de Ventas por Categoría de Productos'
+            },
+            tooltip: {
+                pointFormat: '<b>{point.percentage:.1f}%</b> de ventas<br>Total unidades: {point.total_unidades}'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                     }
                 }
-            }
+            },
+            series: [{
+                name: 'Porcentaje de Ventas',
+                colorByPoint: true,
+                data: datosCategorias.map(function(item) {
+                    return {
+                        name: item.categoria,
+                        y: item.total_ventas,
+                        total_unidades: item.total_unidades
+                    };
+                })
+            }]
         });
-    </script>
+    });
+</script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+        var datosVentasMarca = <?php echo json_encode($datosVentasMarca); ?>;
+        
+        Highcharts.chart('container1', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Cantidad de Ventas por Marca'
+            },
+            xAxis: {
+                type: 'category',
+                title: {
+                    text: 'Marcas'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Cantidad de Ventas'
+                }
+            },
+            series: [{
+                name: 'Ventas',
+                data: datosVentasMarca.map(function(item) {
+                    return {
+                        name: item.marca,
+                        y: item.total_ventas
+                    };
+                })
+            }]
+        });
+    });
+</script>
 
-    <script>
+<script>
         var dates = <?php echo json_encode($dates); ?>;
         var total_sales_day = <?php echo json_encode($total_sales_day); ?>;
         var weeks = <?php echo json_encode($weeks); ?>;
@@ -253,6 +221,49 @@ if ($result->num_rows > 0) {
             salesChart.update();
         });
         
-    </script>
+</script>
+
+<script>
+        var clientes = <?php echo json_encode($clientes); ?>;
+        var total_ventas = <?php echo json_encode($total_ventas); ?>;
+
+        var ctx = document.getElementById('customerChart').getContext('2d');
+        var customerChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: clientes,
+                datasets: [{
+                    label: 'Total Ventas (Soles)',
+                    data: total_ventas,
+                    backgroundColor: 'rgba(75, 192, 194, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Soles'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return 'S/ ' + value;
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Clientes'
+                        }
+                    }
+                }
+            }
+        });
+</script>
+
 
 <?php include '../template/footer_admin.php'; ?>

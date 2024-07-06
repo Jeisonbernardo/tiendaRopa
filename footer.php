@@ -66,7 +66,7 @@ if ($result->num_rows > 0) {
             <a href="#" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Ofertas</a>
           </li>-->
           <li class="nav-item mb-2">
-            <a href="catalogo.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Marcas</a>
+            <a href="marcas.php" class="nav-link mr-lg-0 mr-sm-4 p-0 font-weight-normal">Marcas</a>
           </li>
         </ul>
       </div>
