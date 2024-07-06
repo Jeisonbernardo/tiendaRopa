@@ -50,7 +50,8 @@
             <div class="card-body">
               <form method="POST">
                 <div class="form-group">
-                  <label for="categoria">Escoge la categoría:</label>
+                  <b>
+                  <label for="categoria">Escoge la categoría:</label><br><br>
                   <select class="form-control" id="categoria" name="categoria" required>
                     <option value="">Seleccionar Categoría</option>
                     <?php
@@ -64,6 +65,7 @@
                       }
                     ?>
                   </select>
+                  <b>
                 </div>
                 <div class="form-group" id="subcategoriaForm" style="display: none;">
                   <label for="nombre">Nombre de la subcategoría:</label>

@@ -937,7 +937,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     // Mostrar el botón de administración si el usuario es admin
     if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
-        echo '<a href="admin/index.php" class="nav-link">Panel Administrativo</a>';
+        echo '<a href="views/admin/index.php" class="nav-link">Panel Administrativo</a>';
     }
     ?>
           

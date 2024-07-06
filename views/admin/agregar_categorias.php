@@ -130,13 +130,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="card-body">
       <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="nombre">Nombre de la categoría:</label>
+<b>       <label for="nombre">Nombre de la categoría:</label>
           <input type="text" class="form-control" id="nombrecategoria" name="nombre" required>
-        </div>
+        </div><br>
         <div class="form-group">
           <label for="imagen">Imagen de la categoría:</label>
+</b>
           <input type="file" class="form-control-file" id="imagen" name="imagen">
-          <br>
+          <br><br>
           <div id="imagen-preview" style="max-width: 200px; max-height: 200px;">
             <?php if (isset($rutaImagenDefecto) && !empty($rutaImagenDefecto)) : ?>
               <img src="<?php echo $rutaImagenDefecto . '?t=' . time(); ?>" alt="Previsualización de la imagen" class="img-fluid">
