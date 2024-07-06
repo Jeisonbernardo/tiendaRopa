@@ -404,11 +404,9 @@
 
   
   
-<!--------------------------------------Pago con paypal---------------------------->
+<!---------------------------------------------- Pago con paypal  --------------------------------------------->
 <!-- 1) llamar el script y poner el clientID -->    
-<script src="https://www.paypal.com/sdk/js?client-id=AXGetphgtHoGJmMMv3DLIaPp6ZU8LCr8sMgfgbGCBzTxIJAx6JnZK_c3c5ZIZ45cG_ikict-idoaV1O1&currency=MXN"></script>
-
-
+<script src="https://www.paypal.com/sdk/js?client-id=ASaepcm2oDxNMwSjwVchXDPb_a3EUmtoHhQ9mz76YD5K8-26nkGdumPGPf4EYOTXcl2ID_CVr2C3CrDk&currency=MXN"></script>
 <script>
   //inicializar paypal  
   paypal.Buttons({
@@ -425,19 +423,18 @@
         purchase_units:[{
           amount:{
             //añadir pago 
-            value: 98
+            value: <?php echo number_format($total, 2) + 25;?>
           }
         }]
 
       });
 
     },
-
-
-    //funcion cuando case realiza el pago
+    //funcion cuando se realiza el pago
     onApprove: function(data,actions){
       actions.order.capture().then(function(detalles){
         console.log(detalles);
+        alert("gracias por tu compra");
 
       });
     },
@@ -448,15 +445,9 @@
       console.log(data);
     }
 
-
-
-
-
-
-
-
   }).render('#paypal-button-container'); //id del div del boton
 </script>
+<!---------------------------------------------- Fin Pago con paypal  --------------------------------------------->
 
 
 
