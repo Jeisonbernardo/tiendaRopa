@@ -406,9 +406,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <i class="sr-star cxi-star-filled active"></i>
                 </div>
               </div>
-              <div class="card-product-widgets-bottom">
-                <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-              </div>
             </div>
             <div class="card-body bg-0 pb-2">
               <h3 class="card-product-title text-truncate mb-2">
@@ -437,9 +434,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <i class="sr-star cxi-star"></i>
                 </div>
               </div>
-              <div class="card-product-widgets-bottom">
-                <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-              </div>
             </div>
             <div class="card-body bg-0 pb-2">
               <h3 class="card-product-title text-truncate mb-2">
@@ -459,9 +453,6 @@ while ($row = mysqli_fetch_assoc($result)) {
               <a href="shop-single.php" class="card-img-top">
                 <img src="assets/img/ecommerce/shop/05.jpg" alt="Product image">
               </a>
-              <div class="card-product-widgets-bottom">
-                <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-              </div>
             </div>
             <div class="card-body bg-0 pb-2">
               <h3 class="card-product-title text-truncate mb-2">
@@ -481,9 +472,6 @@ while ($row = mysqli_fetch_assoc($result)) {
               <a href="shop-single.php" class="card-img-top">
                 <img src="assets/img/ecommerce/shop/12.jpg" alt="Product image">
               </a>
-              <div class="card-product-widgets-bottom">
-                <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
-              </div>
             </div>
             <div class="card-body bg-0 pb-2">
               <h3 class="card-product-title text-truncate mb-2">
@@ -511,9 +499,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <i class="sr-star cxi-star"></i>
                   <i class="sr-star cxi-star"></i>
                 </div>
-              </div>
-              <div class="card-product-widgets-bottom">
-                <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Añadir a favoritos"></a>
               </div>
             </div>
             <div class="card-body bg-0 pb-2">
