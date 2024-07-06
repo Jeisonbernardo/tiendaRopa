@@ -509,121 +509,175 @@ while ($row = mysqli_fetch_assoc($result)) {
   <main class="cs-page-wrapper">
 
     <!-- Formulario -->
-    <div class="modal fade" id="modal-signin" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content border-0">
+    <!-- HTML para el modal de inicio de sesión -->
+          <div class="modal fade" id="modal-signin" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content border-0">
 
-          <!-- Formulario de Inicio -->
-          <div class="cs-view show" id="modal-signin-view">
-            <div class="modal-header border-0 pb-0 px-md-5 px-4 d-block position-relative">
-              <h3 class="modal-title mt-4 mb-0 text-center">Iniciar sesión</h3>
-              <button type="button" class="close position-absolute" style="top: 1.5rem; right: 1.5rem;" onclick="closeModal()" aria-label="Close">
-                <i class="cxi-cross" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="modal-body px-md-5 px-4">
-              <p class="font-size-sm text-muted text-center">Inicie sesión en su cuenta utilizando el correo electrónico y la contraseña proporcionados durante el registro.</p>
-              <form class="needs-validation" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" novalidate>
-                <div class="form-group">
-                  <label for="signin-email">Correo electrónico</label>
-                  <input type="email" class="form-control" id="signin-email" name="login_email" placeholder="Su dirección de correo electrónico" required>
-                </div>
-                <div class="form-group">
-                  <label for="signin-password" class="form-label">Contraseña</label>
-                  <div class="cs-password-toggle input-group-overlay">
-                    <input type="password" class="form-control appended-form-control" id="signin-password" name="login_password" placeholder="Tu contraseña" required>
-                    <div class="input-group-append-overlay">
-                      <label class="btn cs-password-toggle-btn input-group-text">
-                        <input type="checkbox" class="custom-control-input">
-                        <i class="cxi-eye cs-password-toggle-indicator"></i>
-                        <span class="sr-only">Mostrar contraseña</span>
-                      </label>
-                    </div>
+                <!-- Formulario de Inicio -->
+                <div class="cs-view show" id="modal-signin-view">
+                  <div class="modal-header border-0 pb-0 px-md-5 px-4 d-block position-relative">
+                    <h3 class="modal-title mt-4 mb-0 text-center">Iniciar sesión</h3>
+                    <button type="button" class="close position-absolute" style="top: 1.5rem; right: 1.5rem;" onclick="closeModal()" aria-label="Close">
+                      <i class="cxi-cross" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body px-md-5 px-4">
+                    <p class="font-size-sm text-muted text-center">Inicie sesión en su cuenta utilizando el correo electrónico y la contraseña proporcionados durante el registro.</p>
+                    <form class="needs-validation" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" novalidate>
+                      <div class="form-group">
+                        <label for="signin-email">Correo electrónico</label>
+                        <input type="email" class="form-control" id="signin-email" name="login_email" placeholder="Su dirección de correo electrónico" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="signin-password" class="form-label">Contraseña</label>
+                        <div class="cs-password-toggle input-group-overlay">
+                          <input type="password" class="form-control appended-form-control" id="signin-password" name="login_password" placeholder="Tu contraseña" required>
+                          <div class="input-group-append-overlay">
+                            <label class="btn cs-password-toggle-btn input-group-text">
+                              <input type="checkbox" class="custom-control-input">
+                              <i class="cxi-eye cs-password-toggle-indicator"></i>
+                              <span class="sr-only">Mostrar contraseña</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center form-group">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="remember-me" checked>
+                          <label for="remember-me" class="custom-control-label">Recuérdame</label>
+                        </div>
+                        <a href="#" class="font-size-sm text-decoration-none">¿Olvidaste tu contraseña?</a>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block" name="login">Iniciar sesión</button>
+                      <p class="font-size-sm pt-4 mb-0">
+                        ¿No tienes una cuenta?
+                        <a href="#" class="font-weight-bold text-decoration-none" data-view="#modal-signup-view">Regístrate</a>
+                      </p>
+                    </form>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-center form-group">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="remember-me" checked>
-                    <label for="remember-me" class="custom-control-label">Recuérdame</label>
+
+                <!-- Formulario de Registro -->
+                <div class="cs-view" id="modal-signup-view">
+                  <div class="modal-header border-0 pb-0 px-md-5 px-4 d-block position-relative">
+                    <h3 class="modal-title mt-4 mb-0 text-center">Registrarse</h3>
+                    <button type="button" class="close position-absolute" style="top: 1.5rem; right: 1.5rem;" onclick="closeModal()" aria-label="Cerrar">
+                      <i class="cxi-cross" aria-hidden="true"></i>
+                    </button>
                   </div>
-                  <a href="#" class="font-size-sm text-decoration-none">¿Olvidaste tu contraseña?</a>
+                  <div class="modal-body px-md-5 px-4">
+                    <p class="font-size-sm text-muted text-center">Regístrese utilizando su dirección de correo electrónico y una contraseña proporcionada durante el registro.</p>
+                    <form class="needs-validation" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" onsubmit="return validatePassword();" novalidate>
+                      <div class="form-group">
+                        <label for="signup-name">Nombres</label>
+                        <input type="text" class="form-control" id="signup-name" name="name" placeholder="Su nombre" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="register-lastname">Apellido</label>
+                        <input type="text" class="form-control" id="register-lastname" name="lastname" placeholder="Tu apellido" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="signup-email">Correo electrónico</label>
+                        <input type="email" class="form-control" id="signup-email" name="email" placeholder="Su dirección de correo electrónico" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="signup-password" class="form-label">Contraseña</label>
+                        <div class="cs-password-toggle input-group-overlay">
+                          <input type="password" class="form-control appended-form-control" id="signup-password" name="password" placeholder="Su contraseña" required>
+                          <div class="input-group-append-overlay">
+                            <label class="btn cs-password-toggle-btn input-group-text">
+                              <input type="checkbox" class="custom-control-input">
+                              <i class="cxi-eye cs-password-toggle-indicator"></i>
+                              <span class="sr-only">Mostrar contraseña</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="signup-confirm-password" class="form-label">Confirmar contraseña</label>
+                        <div class="cs-password-toggle input-group-overlay">
+                          <input type="password" class="form-control appended-form-control" id="signup-confirm-password" name="confirm_password" placeholder="Confirme su contraseña" required>
+                          <div class="input-group-append-overlay">
+                            <label class="btn cs-password-toggle-btn input-group-text">
+                              <input type="checkbox" class="custom-control-input">
+                              <i class="cxi-eye cs-password-toggle-indicator"></i>
+                              <span class="sr-only">Mostrar contraseña</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary btn-block" type="submit" name="register">Registrarse</button>
+                      <p class="font-size-sm pt-4 mb-0">¿Ya tiene una cuenta?
+                        <a href="#" class="font-weight-bold text-decoration-none" data-view="#modal-signin-view">Inicie sesión</a>
+                      </p>
+                    </form>
+                  </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" name="login">Iniciar sesión</button>
-                <p class="font-size-sm pt-4 mb-0">
-                  ¿No tienes una cuenta?
-                  <a href="#" class="font-weight-bold text-decoration-none" data-view="#modal-signup-view">Regístrate</a>
-                </p>
-              </form>
+
+                <!-- Opciones de inicio de sesión social -->
+                <div class="modal-body text-center px-0 pt-2 pb-4">
+                  <hr>
+                  <p class="font-size-sm text-heading mb-3 pt-4">O inicie sesión con:</p>
+                  <a id="facebook-signin" href="#" class="social-btn sb-solid mx-1 mb-2" data-toggle="tooltip" title="Facebook">
+                    <i class="cxi-facebook"></i>
+                  </a>
+                </div>
+
+                <!-- SDK de Firebase -->
+                <script type="module">
+                  // Import the functions you need from the SDKs you need
+                  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+                  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+                  import { getAuth, signInWithPopup, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+                  // Your web app's Firebase configuration
+                  const firebaseConfig = {
+                    apiKey: "AIzaSyDW2kejj8xuCnGhgtyLgug5XS67aRyxqso",
+                    authDomain: "tu-punto-de-moda.firebaseapp.com",
+                    projectId: "tu-punto-de-moda",
+                    storageBucket: "tu-punto-de-moda.appspot.com",
+                    messagingSenderId: "221688679632",
+                    appId: "1:221688679632:web:0af4b229a45b3713b8a2d5",
+                    measurementId: "G-207PGM9K00"
+                  };
+
+                  // Initialize Firebase
+                  const app = initializeApp(firebaseConfig);
+                  const analytics = getAnalytics(app);
+                  const auth = getAuth(app);
+                  const provider = new FacebookAuthProvider();
+
+                  // Facebook login event
+                  document.getElementById('facebook-signin').addEventListener('click', (event) => {
+                    event.preventDefault();
+                    signInWithPopup(auth, provider)
+                      .then((result) => {
+                        // The signed-in user info.
+                        const user = result.user;
+                        console.log('User Info:', user);
+                        // ... (aquí puedes redirigir al usuario o manejar la sesión según sea necesario)
+                      })
+                      .catch((error) => {
+                        // Handle Errors here.
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        const email = error.email;
+                        const credential = error.credential;
+                        console.error('Error during Facebook sign-in:', errorCode, errorMessage);
+                      });
+                  });
+                </script>
+              </div>
             </div>
           </div>
 
-          <!-- Formulario de Registro -->
-          <div class="cs-view" id="modal-signup-view">
-            <div class="modal-header border-0 pb-0 px-md-5 px-4 d-block position-relative">
-              <h3 class="modal-title mt-4 mb-0 text-center">Registrarse</h3>
-              <button type="button" class="close position-absolute" style="top: 1.5rem; right: 1.5rem;" onclick="closeModal()" aria-label="Cerrar">
-                <i class="cxi-cross" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="modal-body px-md-5 px-4">
-              <p class="font-size-sm text-muted text-center">Regístrese utilizando su dirección de correo electrónico y una contraseña proporcionada durante el registro.</p>
-              <form class="needs-validation" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" onsubmit="return validatePassword();" novalidate>
-                <div class="form-group">
-                  <label for="signup-name">Nombres</label>
-                  <input type="text" class="form-control" id="signup-name" name="name" placeholder="Su nombre" required>
-                </div>
-                <div class="form-group">
-                  <label for="register-lastname">Apellido</label>
-                  <input type="text" class="form-control" id="register-lastname" name="lastname" placeholder="Tu apellido" required>
-                </div>
-                <div class="form-group">
-                  <label for="signup-email">Correo electrónico</label>
-                  <input type="email" class="form-control" id="signup-email" name="email" placeholder="Su dirección de correo electrónico" required>
-                </div>
-                <div class="form-group">
-                  <label for="signup-password" class="form-label">Contraseña</label>
-                  <div class="cs-password-toggle input-group-overlay">
-                    <input type="password" class="form-control appended-form-control" id="signup-password" name="password" placeholder="Su contraseña" required>
-                    <div class="input-group-append-overlay">
-                      <label class="btn cs-password-toggle-btn input-group-text">
-                        <input type="checkbox" class="custom-control-input">
-                        <i class="cxi-eye cs-password-toggle-indicator"></i>
-                        <span class="sr-only">Mostrar contraseña</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="signup-confirm-password" class="form-label">Confirmar contraseña</label>
-                  <div class="cs-password-toggle input-group-overlay">
-                    <input type="password" class="form-control appended-form-control" id="signup-confirm-password" name="confirm_password" placeholder="Confirme su contraseña" required>
-                    <div class="input-group-append-overlay">
-                      <label class="btn cs-password-toggle-btn input-group-text">
-                        <input type="checkbox" class="custom-control-input">
-                        <i class="cxi-eye cs-password-toggle-indicator"></i>
-                        <span class="sr-only">Mostrar contraseña</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <button class="btn btn-primary btn-block" type="submit" name="register">Registrarse</button>
-                <p class="font-size-sm pt-4 mb-0">¿Ya tiene una cuenta?
-                  <a href="#" class="font-weight-bold text-decoration-none" data-view="#modal-signin-view">Inicie sesión</a>
-                </p>
-              </form>
-            </div>
-          </div>
-
-          <div class="modal-body text-center px-0 pt-2 pb-4">
-            <hr>
-            <p class="font-size-sm text-heading mb-3 pt-4">O inicie sesión con:</p>
-            <a href="#" class="social-btn sb-solid mx-1 mb-2" data-toggle="tooltip" title="Facebook">
-              <i class="cxi-facebook"></i>
-            </a>
-            <a href="#" class="social-btn sb-solid mx-1 mb-2" data-toggle="tooltip" title="Google">
-              <i class="cxi-google"></i>
-            </a>
-          </div>
+          <!-- JavaScript para cerrar el modal -->
+          <script>
+            function closeModal() {
+              $('#modal-signin').modal('hide');
+            }
+          </script>
 
         </div>
       </div>
