@@ -767,7 +767,7 @@ while ($row = mysqli_fetch_assoc($result)) {
               <i class="cxi-profile font-size-base mr-2"></i>
               <span>Mi Perfil</span>
             </a>
-            <a href="account-orders.php" class="dropdown-item d-flex align-items-center">
+            <a href="pedido.php" class="dropdown-item d-flex align-items-center">
               <i class="cxi-bag font-size-base mr-2"></i>
               <span>Mis Pedidos</span>
             </a>
@@ -954,7 +954,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </a>
                   </li>
                   <li>
-                    <a href="account-orders.php" class="dropdown-item d-flex align-items-center">
+                    <a href="pedidos.php" class="dropdown-item d-flex align-items-center">
                       <i class="cxi-bag font-size-base mr-2"></i>
                       <span>Mis Pedidos</span>
                     </a>
