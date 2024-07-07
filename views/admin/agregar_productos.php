@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="card box-shadow-sm">
   <div class="card-header">
-    <h5 style="margin-bottom: 0px;">Registro de producto</h5>
+    <h5 style="margin-bottom: 0px;">REGISTRO DE PRODUCTO</h5>
   </div>
   <div class="card-body">
     <form method="POST" enctype="multipart/form-data">

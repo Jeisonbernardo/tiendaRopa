@@ -771,10 +771,6 @@ while ($row = mysqli_fetch_assoc($result)) {
               <i class="cxi-bag font-size-base mr-2"></i>
               <span>Mis Pedidos</span>
             </a>
-            <a href="account-reviews.php" class="dropdown-item d-flex align-items-center">
-              <i class="cxi-star font-size-base mr-2"></i>
-              <span>Mis Reseñas</span>
-            </a>
             <div class="dropdown-divider"></div>
             <a href="?logout=1" class="dropdown-item d-flex align-items-center">
             <i class="cxi-logout font-size-base mr-2"></i>
@@ -975,12 +971,12 @@ while ($row = mysqli_fetch_assoc($result)) {
                       <span>Recientemente</span>
                     </a>
                   </li>
-                  <li>
+                  <!--<li>
                     <a href="account-reviews.php" class="dropdown-item d-flex align-items-center">
                       <i class="cxi-star font-size-base mr-2"></i>
                       <span>Mis Reseñas</span>
                     </a>
-                  </li>
+                  </li>-->
                   <li>
                     <a href="#" class="dropdown-item d-flex align-items-center">
                       <i class="cxi-logout font-size-base mr-2"></i>

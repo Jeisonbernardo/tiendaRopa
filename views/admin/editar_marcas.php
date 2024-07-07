@@ -148,10 +148,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <input type="text" class="form-control" id="nombre" name="nombre" required value="<?php echo $nombremarca; ?>">
         </div>
         <div class="form-group">
-          <label for="imagen">Imagen de la marca (formato .png):</label>
+          <br><label for="imagen">Imagen de la marca (formato .png):</label>
           <input type="file" class="form-control-file" id="imagen" name="imagen" accept=".png">
           <br>
-          <div id="imagen-preview" style="max-width: 200px; max-height: 200px;">
+          <br><div id="imagen-preview" style="max-width: 200px; max-height: 200px;">
             <?php if (!empty($rutaImagen_actual)) : ?>
               <!-- Agregar un parámetro aleatorio a la URL de la imagen -->
               <img src="<?php echo $rutaImagen_actual . '?t=' . time(); ?>" alt="Previsualización de la imagen">
@@ -160,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Actualizar marca</button>
+        <br><button type="submit" class="btn btn-primary">Actualizar marca</button>
         <a href="marcas.php" class="btn btn-secondary">Cancelar</a>
       </form>
 

@@ -218,16 +218,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Titulo de producto" required value="<?php echo $nombre; ?>">
             </div>
             <div class="col-lg-4 form-group">
-              <label for="stock">Stock</label>
+              <br><label for="stock">Stock</label>
               <input type="number" class="form-control" id="stock" name="stock" placeholder="Cantidad inicial" required min="0" value="<?php echo $stock; ?>">
             </div>
             <div class="col-lg-4 form-group">
-              <label for="precio">Precio (S/.)</label>
+              <br><label for="precio">Precio (S/.)</label>
               <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio" required min="0" step="any" value="<?php echo $precio; ?>">
             </div>
 
             <div class="col-lg-4 form-group">
-              <label for="marca_id">Marca</label>
+              <br><label for="marca_id">Marca</label>
               <select class="form-control custom-select" id="marca_id" name="marca_id">
                 <option value="">Seleccionar Marca</option>
                 <?php
@@ -245,7 +245,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="col-lg-4 form-group">
-              <label for="categoria_id">Categoría</label>
+              <br><label for="categoria_id">Categoría</label>
               <select class="form-control custom-select" id="categoria_id" name="categoria_id" onchange="showSubcategorias()">
                 <option value="">Seleccionar Categoría</option>
                 <?php
@@ -263,7 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="col-lg-4 form-group" id="subcategoriaDiv" style="display: <?php echo ($subcategoria_id) ? 'block' : 'none'; ?>;">
-              <label for="subcategoria_id">Subcategoría</label>
+              <br><label for="subcategoria_id">Subcategoría</label>
               <select class="form-control custom-select" id="subcategoria_id" name="subcategoria_id">
                 <option value="">Seleccionar Subcategoría</option>
                 <?php
@@ -282,11 +282,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="col-lg-12 form-group">
-              <label for="descripcion">Descripción</label>
+              <br><label for="descripcion">Descripción</label>
               <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción del producto" required rows="5"><?php echo $descripcion; ?></textarea>
             </div>
             <div class="col-lg-4 form-group">
-              <label for="talla">Talla seleccionada:</label>
+              <br><label for="talla">Talla seleccionada:</label>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="talla_ropa" name="tallas_seleccionadas[]" value="ropa" <?php if (isset($talla) && in_array('ropa', explode(', ', $talla))) echo 'checked'; ?>>
                 <label class="form-check-label" for="talla_ropa">Ropa</label>
@@ -332,7 +332,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <!-- Fin del formulario de subida de imagen -->
         </div>
-      </div>
+      </div><br>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary">Actualizar producto</button>
         <a href="productos.php" class="btn btn-secondary">Cancelar</a>
