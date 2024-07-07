@@ -763,7 +763,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 ' . $username . '
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-            <a href="account-profile.php" class="dropdown-item d-flex align-items-center">
+            <a href="user-perfil.php" class="dropdown-item d-flex align-items-center">
               <i class="cxi-profile font-size-base mr-2"></i>
               <span>Mi Perfil</span>
             </a>
@@ -948,7 +948,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="account-profile.php" class="dropdown-item d-flex align-items-center">
+                    <a href="user-perfil.php" class="dropdown-item d-flex align-items-center">
                       <i class="cxi-profile font-size-base mr-2"></i>
                       <span>Mi Perfil</span>
                     </a>
