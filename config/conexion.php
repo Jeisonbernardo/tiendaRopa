@@ -1,6 +1,6 @@
 <?php
 // Datos de conexión a la base de datos
-$servername = 'localhost:3306'; // Cambia esto si tu servidor de base de datos no está en localhost
+$servername = 'localhost'; // Cambia esto si tu servidor de base de datos no está en localhost
 $username = 'root'; // Reemplaza "tu_usuario" por el nombre de usuario de tu base de datos
 $password = ''; // Reemplaza "tu_contraseña" por la contraseña de tu base de datos
 $dbname = 'tiendaropa'; // Reemplaza "nombre_de_tu_base_de_datos" por el nombre de tu base de datos

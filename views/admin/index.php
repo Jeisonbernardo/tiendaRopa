@@ -80,7 +80,7 @@
           <canvas id="customerChart" width="400" height="200"></canvas>
       </div>
     </div>
-</div>
+</div> <br><br><br>
 
 
 <script>
