@@ -3,7 +3,8 @@ include 'conexion.php';
 include 'navbar.php';
 
 if (!isset($_SESSION['user_token'])) {
-    header("Location: index.php");
+    echo '<div class="border-bottom text-center"><br><br><br>';
+    echo '<h5 class="text-muted">"No se encontró usuario con sesión iniciada."</h5></div>';
     exit();
 }
 
