@@ -153,7 +153,7 @@
             <div class="row pb-3">
               <div class="col-sm-6 form-group">
                 <label for="ch-fn">Nombres</label>
-                <input type="text" class="form-control form-control-lg" id="ch-fn" placeholder="Tu nombre">
+                <input type="text" class="form-control form-control-lg" id="ch-fn" placeholder="Tu nombre" required>
               </div>
               <div class="col-sm-6 form-group">
                 <label for="ch-ln">Apellidos</label>
@@ -187,7 +187,7 @@
               </div>
               <div class="col-sm-6 form-group">
                 <label for="ch-zip">Código Postal</label>
-                <input type="text" class="form-control form-control-lg" id="ch-zip" placeholder="Código Postal">
+                <input type="text" class="form-control form-control-lg" id="ch-zip" placeholder="Código Postal" >
               </div>
               <div class="col-12 form-group">
                 <div class="custom-control custom-checkbox">
@@ -366,8 +366,8 @@
                     <span class="fw-bold">S/<?php echo number_format($total, 2); ?></span>
                   </li>
                   <li class="d-flex justify-content-between mb-2">
-                    <span>Costos de envío:</span>
-                    <span>S/10.00</span>
+                    <span>Costos adicional:</span>
+                    <span id="total">S/10.00</span>
                   </li>
                   <li class="d-flex justify-content-between mb-2">
                     <span>Descuento:</span>
@@ -376,7 +376,9 @@
                 </ul>
                 <div class="d-flex justify-content-between p-4">
                   <span class="h5 mb-0">Monto a pagar:</span>
-                  <span class="h5 mb-0">S/<?php echo number_format($total, 2) + 10;?></span>
+                  
+
+                  <span class="h5 mb-0">S/<?php echo number_format($total, 2);?></span>
                   <?php $total_usd = (number_format($total, 2)) * 0.26; ?>
                 </div>
               </div>
@@ -405,7 +407,25 @@
       <!-- Footer -->
       <?php include 'footer.php'; ?>
 
+      
 
+<script>
+    const courierInput = document.getElementById('courier');
+    const storePickupInput = document.getElementById('store-pickup');
+    const totalElement = document.getElementById('total');
+    function actualizarTotal() {
+      if (courierInput.checked) {
+        totalElement.textContent = 'S/10.00';
+      } else if (storePickupInput.checked) {
+        totalElement.textContent = 'S/0.00';
+      }
+    }
+
+    actualizarTotal();
+    courierInput.addEventListener('change', actualizarTotal);
+    storePickupInput.addEventListener('change', actualizarTotal);
+    
+</script>
   
   
 <!---------------------------------------------- Pago con paypal  --------------------------------------------->
