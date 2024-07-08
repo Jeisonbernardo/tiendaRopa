@@ -49,7 +49,7 @@ $result = mysqli_stmt_get_result($stmt);
         .compra {
             display: flex;
             flex-wrap: wrap;
-            border: 1px solid #007bff;
+            border: 1px solid #000000;
             border-radius: 8px;
             margin-bottom: 20px;
             padding: 10px;
@@ -65,7 +65,7 @@ $result = mysqli_stmt_get_result($stmt);
             flex: 1;
         }
         .detalle div {
-            border: 1px solid #007bff;
+            border: 1px solid #028bc4;
             padding: 10px;
             margin: 5px;
             flex: 1 1 calc(33.333% - 20px);
@@ -83,7 +83,7 @@ $result = mysqli_stmt_get_result($stmt);
 <div class="container mt-5">
     <div class="border-bottom text-center">
         <h2 class="mt-2 mt-md-4 mb-3 pt-3">MIS COMPRAS</h2>
-        <p class="text-muted">Aquí puedes observar las compras que realizaste</p>
+        <p class="text-muted">Aquí puedes observar las compras que realizaste</p><br>
     </div>
         <?php while ($row = mysqli_fetch_assoc($result)): ?>
             <div class="compra">
@@ -122,9 +122,9 @@ $result = mysqli_stmt_get_result($stmt);
                         <?php echo htmlspecialchars($row['tallas_seleccionadas']); ?>
                     </div>
                 </div>
-            </div>
+            </div><br>
         <?php endwhile; ?>
-</div><br><br><br><br>
+</div><br><br><br>
 
 <?php
 mysqli_stmt_close($stmt);
