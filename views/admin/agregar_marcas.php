@@ -85,17 +85,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="card-body">
       <form method="POST" enctype="multipart/form-data">
           <div class="form-group">
+            <b>
             <label for="nombre">Nombre de la marca:</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>
-          </div>
+          </div><br>
           <div class="form-group">
             <label for="imagen">Imagen de la marca (formato .png):</label>
             <input type="file" class="form-control-file" id="imagen" name="imagen" accept=".png">
             <br>
+            <b>
             <div id="imagen-preview" style="max-width: 200px; max-height: 200px;">
                 
             </div>
-          </div>
+          </div><br>
           <button type="submit" class="btn btn-primary">Agregar marca</button>
       </form>
 

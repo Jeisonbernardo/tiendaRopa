@@ -69,7 +69,7 @@
                         <i class="lni lni-grid-alt"></i>
                     </button>
                     <div class="sidebar-logo">
-                        <a href="#">Tu punto de moda</a>
+                        <a href="#">TuPuntodeModa</a>
                     </div>
                 </div>
                 <ul class="sidebar-nav">
@@ -166,7 +166,7 @@
                     <li class="sidebar-item">
                         <a href="./register.php" class="sidebar-link">
                             <i class="lni lni-customer"></i>
-                            <span>Registrar administrador</span>
+                            <span>Agregar Integrante</span>
                         </a>
                     </li>
                 </ul>
@@ -199,7 +199,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end rounded">
                                     <a class="dropdown-item <?php echo strpos($current_url, 'cuenta.php') !== false ? 'active' : ''; ?>" href="./cuenta.php">Perfil</a>
-                                    <a class="dropdown-item" href="./index.php">Ir a tienda</a>
+                                    <a class="dropdown-item" href="../../index.php">Ir a tienda</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="?logout=true">Cerrar sesión</a>
 

@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="card box-shadow-sm">
   <div class="card-header">
-    <h5 style="margin-bottom: 0px;">Registro de producto</h5>
+    <h5 style="margin-bottom: 0px;">REGISTRO DE PRODUCTO</h5>
   </div>
   <div class="card-body">
     <form method="POST" enctype="multipart/form-data">
@@ -169,16 +169,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Titulo de producto" required>
             </div>
             <div class="col-lg-4 form-group">
-              <label for="stock">Stock</label>
+              <br><label for="stock">Stock</label>
               <input type="number" class="form-control" id="stock" name="stock" placeholder="Cantidad inicial" required min="0">
             </div>
             <div class="col-lg-4 form-group">
-              <label for="precio">Precio (S/.)</label>
+              <br><label for="precio">Precio (S/.)</label>
               <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio" required min="0" step="any">
             </div>
 
             <div class="col-lg-4 form-group">
-              <label for="marca_id">Marca</label>
+              <br><label for="marca_id">Marca</label>
               <select class="form-control custom-select" id="marca_id" name="marca_id">
                 <option value="">Seleccionar Marca</option>
                 <?php
@@ -195,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="col-lg-4 form-group">
-              <label for="categoria_id">Categoría</label>
+              <br><label for="categoria_id">Categoría</label>
               <select class="form-control custom-select" id="categoria_id" name="categoria_id" onchange="showSubcategorias()">
                 <option value="">Seleccionar Categoría</option>
                 <?php
@@ -230,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="col-lg-4 form-group">
-              <label for="talla">Talla</label>
+              <br><label for="talla">Talla</label>
               <select class="form-control custom-select" name="tallas_ropa[]" id="talla" class="form-control">
                 <option value="">Seleccionar Talla para:</option>
                 <option value="ropa">Ropa</option>
@@ -243,7 +243,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="col-lg-12 form-group">
-              <label for="descripcion">Descripción</label>
+              <br><label for="descripcion">Descripción</label>
               <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción corta" required rows="5"></textarea>
             </div>
           </div>
@@ -253,7 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <!-- Formulario de subida de imagen -->
           <div class="form-group">
             <label for="imagen-producto">Subir imagen del producto:</label>
-            <input type="file" class="form-control-file" id="imagenes" name="imagenes[]" multiple accept=".png, .jpg, .jpeg, .webp">
+            <br><br><input type="file" class="form-control-file" id="imagenes" name="imagenes[]" multiple accept=".png, .jpg, .jpeg, .webp">
           </div>
           <div class="form-group">
             <div id="imagen-producto-preview" class="d-flex flex-wrap">
@@ -262,7 +262,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <!-- Fin del formulario de subida de imagen -->
         </div>
-      </div>
+      </div><br>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary">Crear producto</button>
       </div>

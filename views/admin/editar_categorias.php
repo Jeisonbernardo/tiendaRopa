@@ -167,10 +167,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <input type="text" class="form-control" id="nombrecategoria" name="nombre" value="<?php echo $nombreCategoria; ?>" required>
         </div>
         <div class="form-group">
-          <label for="imagen">Imagen de la categoria:</label>
+          <br><label for="imagen">Imagen de la categoria:</label>
           <input type="file" class="form-control-file" id="imagen" name="imagen">
           <br>
-          <div id="imagen-preview" style="max-width: 200px; max-height: 200px;">
+          <br><div id="imagen-preview" style="max-width: 200px; max-height: 200px;">
             <!-- Mostrar la imagen de la categoría obtenida de la base de datos -->
             <?php if (!empty($imagenCategoria)) : ?>
               <img src="<?php echo $imagenCategoria . '?t=' . time(); ?>" alt="Previsualización de la imagen" style="max-width: 200px; max-height: 200px;">
@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Actualizar categoría</button>
+        <br><button type="submit" class="btn btn-primary">Actualizar categoría</button>
         <!-- Añadir el botón "Cancelar" que redirige a la página de listar categorías -->
         <a href="categorias.php" class="btn btn-secondary">Cancelar</a>
       </form>

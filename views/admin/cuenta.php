@@ -17,19 +17,19 @@
         <div class="card-body">
             <form id="updateForm" method="POST" enctype="multipart/form-data" onsubmit="return validatePasswords(event)">
                 <div class="form-group">
-                    <label for="nombre">Nombre:</label>
+<b>             <label for="nombre">Nombre:</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombreUsuario; ?>" placeholder="Ingresa tu nombre">
-                </div>
+                </div><br>
 
                 <div class="form-group">
                     <label for="apellido">Apellido:</label>
                     <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $apellidoUsuario; ?>" placeholder="Ingresa tu apellido">
-                </div>
+                </div><br>
 
                 <div class="form-group">
                     <label for="correo">Correo electrónico:</label>
                     <input type="email" class="form-control" id="correo" name="correo" value="<?php echo $emailUsuario; ?>" placeholder="Ingresa tu correo electrónico">
-                </div>
+                </div><br>
 
                 <div class="form-group">
                     <label for="register-password" class="form-label">Nueva contraseña</label>
@@ -41,7 +41,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div><br>
 
                 <div class="form-group">
                     <label for="register-confirm-password" class="form-label">Confirmar nueva contraseña</label>
@@ -53,14 +53,14 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div><br>
 
                 <div class="form-group">
                     <label for="foto">Foto de perfil:</label>
                     <input type="file" class="form-control-file" id="foto" name="foto">
                 </div>
-
-                <div class="form-group">
+</b>
+                <div class="form-group"><br>
                     <label for="profile_picture_preview">Vista previa de la imagen de perfil:</label>
                     <div id="profile_picture_preview" class="border p-2" style="max-width: 200px; max-height: 200px;">
                         <?php if ($fotoPerfil) : ?>
@@ -69,7 +69,7 @@
                             <p>No se ha seleccionado ninguna imagen de perfil.</p>
                         <?php endif; ?>
                     </div>
-                </div>
+                </div><br>
 
                 <button type="submit" class="btn btn-primary">Actualizar datos</button>
             </form>

@@ -383,13 +383,14 @@
               if (isset($_SESSION["user_token"])) {
                 $user_token = $_SESSION["user_token"];
               ?>
-                <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button>
+                <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button><br><br>
+                <div id="paypal-button-container"></div>
+              </div>
                 
               <?php
               }
               ?>
-              <div id="paypal-button-container"></div>
-            </div>
+              
           </aside>
 
         </div>

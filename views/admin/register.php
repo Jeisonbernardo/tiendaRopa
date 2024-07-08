@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row border-bottom pt-1 mt-2 mb-5" style="width: 100%; height: 100%;">
       <div class="mx-auto" style="display: flex; align-items: center;">
         <div class="modal-body px-md-5 px-4">
-          <h3 class="modal-title mt-4 mb-0 text-center mb-5">Registrar</h3>
+          <h3 class="modal-title mt-4 mb-0 text-center mb-5">AGREGAR INTEGRANTE</h3>
           <div class="form-password-alert" id="form-password-alert"></div>
           <?php
           if (isset($error_message)) {

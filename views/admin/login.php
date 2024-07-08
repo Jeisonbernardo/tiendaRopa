@@ -78,7 +78,7 @@ include_once BASE_PATH . 'config/conexion.php';
                     <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
                 </form>
                 <div class="text-center mt-3">
-                    <a href="<?php echo BASE_URL; ?>" class="btn btn-link">Regresar al inicio</a>
+                    <a href="../../index.php" class="btn btn-link">Regresar al inicio</a>
                 </div>
             </div>
         </div>

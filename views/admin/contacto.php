@@ -87,7 +87,8 @@
 
                             // Mostrar la ventana emergente personalizada al hacer clic en el botón "Eliminar"
                             echo '<button type="button" class="btn btn-outline-danger btn-sm" onclick="showConfirmationDialog(' . $row['id_contacto'] . ')">Eliminar</button>';
-                            echo '<button type="button" class="btn btn-outline-primary btn-sm" onclick="enviarCorreo(\'' . $row['email'] . '\')">Enviar Correo</button>';
+                            echo ' ';
+                            echo '<button type="button" class="btn btn-outline-primary btn-sm" onclick="enviarCorreo(\'' . $row['email'] . '\')">Responder</button>';
                             echo '</td>';
                             echo '</tr>';
                         }
