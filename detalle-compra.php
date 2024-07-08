@@ -208,7 +208,7 @@
                   <strong class="d-block">Envío por courier a tu dirección</strong>
                   <span class="text-muted font-size-sm">Fecha estimada: 9 de noviembre</span>
                 </span>
-                <span class="ml-auto">S/25.00</span>
+                <span class="ml-auto">S/10.00</span>
               </label>
             </div>
             <div class="custom-control custom-radio mb-3">
@@ -367,7 +367,7 @@
                   </li>
                   <li class="d-flex justify-content-between mb-2">
                     <span>Costos de envío:</span>
-                    <span>S/25.00</span>
+                    <span>S/10.00</span>
                   </li>
                   <li class="d-flex justify-content-between mb-2">
                     <span>Descuento:</span>
@@ -376,7 +376,8 @@
                 </ul>
                 <div class="d-flex justify-content-between p-4">
                   <span class="h5 mb-0">Monto a pagar:</span>
-                  <span class="h5 mb-0">S/<?php echo number_format($total, 2) + 25;?></span>
+                  <span class="h5 mb-0">S/<?php echo number_format($total, 2) + 10;?></span>
+                  <?php $total_usd = (number_format($total, 2)) * 0.26; ?>
                 </div>
               </div>
               <?php
@@ -384,12 +385,14 @@
                 $user_token = $_SESSION["user_token"];
               ?>
                 <button type="button" id="btn_pagar"  class="btn btn-primary btn-lg w-100">Confirmar pago</button><br><br>
-                <div id="paypal-button-container"></div>
+        
               </div>
-                
               <?php
               }
               ?>
+              <div id="paypal-button-container">
+
+              </div>
               
           </aside>
 
@@ -407,7 +410,7 @@
   
 <!---------------------------------------------- Pago con paypal  --------------------------------------------->
 <!-- 1) llamar el script y poner el clientID -->    
-<script src="https://www.paypal.com/sdk/js?client-id=ASaepcm2oDxNMwSjwVchXDPb_a3EUmtoHhQ9mz76YD5K8-26nkGdumPGPf4EYOTXcl2ID_CVr2C3CrDk&currency=MXN"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=ASaepcm2oDxNMwSjwVchXDPb_a3EUmtoHhQ9mz76YD5K8-26nkGdumPGPf4EYOTXcl2ID_CVr2C3CrDk&currency=USD"></script>
 <script>
   //inicializar paypal  
   paypal.Buttons({
@@ -424,7 +427,7 @@
         purchase_units:[{
           amount:{
             //añadir pago 
-            value: <?php echo number_format($total, 2) + 25;?>
+            value: <?php echo number_format($total_usd, 2);?>
           }
         }]
 

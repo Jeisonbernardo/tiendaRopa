@@ -732,18 +732,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <!--<i class="cxi-world mr-1 font-size-base align-middle"></i>
             Cambiar <span class="d-none d-sm-inline">idioma</span>!-->
           </a>
-          <div>
-            <a href="#" class="topbar-link" id="penLink" onclick="window.location.href = window.location.href; changeCurrency()">
-              <img src="./assets/img/ecommerce/flags/pe.png" class="mr-2" width="20" alt="Perú">
-              PEN - S/.
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item">
-                <img src="./assets/img/ecommerce/flags/en.png" class="mr-2" width="20" alt="E.E.U.U">
-                USD - $
-              </a>
-            </div>
-          </div>
+          
           <?php
           // Verificar si el usuario tiene la sesión iniciada
           if (isset($_SESSION["user_token"])) {
@@ -788,6 +777,10 @@ while ($row = mysqli_fetch_assoc($result)) {
           </a>';
           }
           ?>
+          <a href="./views/admin/loginconf.php"class="topbar-link ">
+            <i class="cxi-profile mr-1 font-size-base align-middle"></i>
+            Admin
+          </a>
         </div>
       </div>
 
