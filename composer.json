@@ -1,7 +1,0 @@
-{
-    "require": {
-        "php": "^8.1",
-        "symfony/class-loader": "^4.0",
-        "culqi/culqi-php": "^2.1"
-    }
-}
