@@ -465,7 +465,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     </div>
   </div>
 </section>
-
+</main>
 
 
 <!-- ChatBoot Tidio-->
