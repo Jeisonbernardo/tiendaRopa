@@ -496,7 +496,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       };
     </script>
   <?php endif; ?>
-
+      
   <div class="whatsapp-icon">
     <a href="tel:+51 <?php echo $numero; ?>" target="_blank">
       <img src="./assets/img/icon_whast_vf.png" alt="WhatsApp Icon">

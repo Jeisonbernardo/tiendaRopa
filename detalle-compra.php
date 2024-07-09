@@ -206,7 +206,7 @@
               <label for="courier" class="custom-control-label d-flex align-items-center">
                 <span>
                   <strong class="d-block">Envío por courier a tu dirección</strong>
-                  <span class="text-muted font-size-sm">Fecha estimada: 9 de noviembre</span>
+                  
                 </span>
                 <span class="ml-auto">S/10.00</span>
               </label>
@@ -216,7 +216,7 @@
               <label for="store-pickup" class="custom-control-label d-flex align-items-center">
                 <span>
                   <strong class="d-block">Recoger en la tienda</strong>
-                  <span class="text-muted font-size-sm">Recoger el 8 de noviembre a partir de las 12:00pm</span>
+                  
                 </span>
                 <span class="ml-auto">Gratis</span>
               </label>
@@ -378,7 +378,8 @@
                   <span class="h5 mb-0">Monto a pagar:</span>
                   
 
-                  <span class="h5 mb-0">S/<?php echo number_format($total, 2);?></span>
+                  <span class="h5 mb-0" id="totall"></span>
+                  
                   <?php $total_usd = (number_format($total, 2)) * 0.26; ?>
                 </div>
               </div>
@@ -392,9 +393,12 @@
               <?php
               }
               ?>
+          
+  
               <div id="paypal-button-container">
 
               </div>
+              
               
           </aside>
 
@@ -412,13 +416,22 @@
 <script>
     const courierInput = document.getElementById('courier');
     const storePickupInput = document.getElementById('store-pickup');
-    const totalElement = document.getElementById('total');
+    const totalElement = document.getElementById('totall');
+    const totalElementt = document.getElementById('total');
+    let baseTotal = <?php echo $total; ?>;
     function actualizarTotal() {
+      let total = baseTotal;
       if (courierInput.checked) {
         totalElement.textContent = 'S/10.00';
+        totalElementt.textContent = 'S/10.00';
+        total += 10.00;
       } else if (storePickupInput.checked) {
         totalElement.textContent = 'S/0.00';
+        totalElementt.textContent = 'S/0.00';
+        total += 0.00;
       }
+      totalElement.textContent = `S/${total.toFixed(2)}`; 
+      
     }
 
     actualizarTotal();

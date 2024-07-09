@@ -99,7 +99,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 ?>
-<!-- end navbar -->
 
 <!-- Hero slider -->
 <section class="cs-carousel cs-controls-onhover">
@@ -467,7 +466,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   </div>
 </section>
 
-</main>
+
 
 <!-- ChatBoot Tidio-->
 <script src="//code.tidio.co/ltnojin2icondmiivcm8dykssyymqx8o.js" async></script>
