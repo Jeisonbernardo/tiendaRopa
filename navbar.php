@@ -772,11 +772,11 @@ while ($row = mysqli_fetch_assoc($result)) {
           } else {
             // Si el usuario no tiene la sesión iniciada, mostrar el enlace de Iniciar Sesión / Registrarse
             echo '<a href="#" class="topbar-link d-lg-inline-block d-none ml-4 pl-1 text-decoration-none text-nowrap" onclick="openModal(); return false;">
-            <i class="cxi-profile mr-1 font-size-base align-middle"></i>
-            Iniciar Sesión / Registrarse
-          </a>';
+            <i class="cxi-profile mr-1 font-size-base align-middle">
+            </i>Iniciar Sesión / Registrarse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>';
           }
           ?>
+          <br>
           <a href="./views/admin/loginconf.php"class="topbar-link ">
             <i class="cxi-profile mr-1 font-size-base align-middle"></i>
             Admin
@@ -947,21 +947,9 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </a>
                   </li>
                   <li>
-                    <a href="pedidos.php" class="dropdown-item d-flex align-items-center">
+                    <a href="pedido.php" class="dropdown-item d-flex align-items-center">
                       <i class="cxi-bag font-size-base mr-2"></i>
                       <span>Mis Pedidos</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="account-wishlist.php" class="dropdown-item d-flex align-items-center">
-                      <i class="cxi-heart font-size-base mr-2"></i>
-                      <span>Favoritos</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="account-recently-viewed.php" class="dropdown-item d-flex align-items-center">
-                      <i class="cxi-eye font-size-base mr-2"></i>
-                      <span>Recientemente</span>
                     </a>
                   </li>
                   <!--<li>
