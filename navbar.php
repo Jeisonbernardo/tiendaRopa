@@ -772,11 +772,11 @@ while ($row = mysqli_fetch_assoc($result)) {
           } else {
             // Si el usuario no tiene la sesión iniciada, mostrar el enlace de Iniciar Sesión / Registrarse
             echo '<a href="#" class="topbar-link d-lg-inline-block d-none ml-4 pl-1 text-decoration-none text-nowrap" onclick="openModal(); return false;">
-            <i class="cxi-profile mr-1 font-size-base align-middle"></i>
-            Iniciar Sesión / Registrarse
-          </a>';
+            <i class="cxi-profile mr-1 font-size-base align-middle">
+            </i>Iniciar Sesión / Registrarse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>';
           }
           ?>
+          <br>
           <a href="./views/admin/loginconf.php"class="topbar-link ">
             <i class="cxi-profile mr-1 font-size-base align-middle"></i>
             Admin
